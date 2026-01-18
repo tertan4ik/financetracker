@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="FinanceTracker.MAUI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FinanceTracker.MAUI"
+     xmlns:views="clr-namespace:FinanceTracker.MAUI.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="FinanceTracker.MAUI">
+
+    <FlyoutItem Title="Категории" Icon="dotnet_bot.png">
+        <ShellContent ContentTemplate="{DataTemplate views:CategoriesPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Операции" Icon="dotnet_bot.png">
+        <ShellContent ContentTemplate="{DataTemplate views:OperationsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Бюджет" Icon="dotnet_bot.png">
+        <ShellContent ContentTemplate="{DataTemplate views:BudgetPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Цели накопления" Icon="dotnet_bot.png">
+        <ShellContent ContentTemplate="{DataTemplate views:SavingGoalsPage}" />
+    </FlyoutItem>
+    
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>

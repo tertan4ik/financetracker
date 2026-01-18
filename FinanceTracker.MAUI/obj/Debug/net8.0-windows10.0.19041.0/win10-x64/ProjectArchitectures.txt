@@ -1,0 +1,1 @@
+C:\Financetracker\FinanceTracker.MAUI\FinanceTracker.MAUI.csproj;x64

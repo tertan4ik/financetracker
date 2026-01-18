@@ -1,0 +1,37 @@
+﻿<Window x:Class="FinanceTracker.WPF.Views.CategoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Категории" Width="400" Height="450">
+
+    <StackPanel Margin="10">
+
+        <TextBlock Text="Название категории"/>
+        <TextBox Text="{Binding Name}" Margin="0,0,0,5"/>
+
+        <TextBlock Text="Тип категории"/>
+        <ComboBox ItemsSource="{Binding CategoryTypes}"
+                  SelectedItem="{Binding SelectedCategoryType}"
+                  Margin="0,0,0,10"/>
+
+        <Button Content="Добавить"
+                Command="{Binding AddCategoryCommand}"/>
+
+        <Button Content="Сохранить изменения"
+                Command="{Binding UpdateCategoryCommand}"
+                Margin="0,5,0,0"/>
+
+        <Button Content="Удалить"
+                Command="{Binding DeleteCategoryCommand}"
+                Margin="0,5,0,10"/>
+
+        <ListBox ItemsSource="{Binding Categories}"
+                 SelectedItem="{Binding SelectedCategory}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </StackPanel>
+</Window>

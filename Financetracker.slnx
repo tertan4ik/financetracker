@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="FinanceTracker.core/FinanceTracker.core.csproj" />
+  <Project Path="FinanceTracker.MAUI/FinanceTracker.MAUI.csproj" Id="40837d45-cf71-4877-8fda-483e6e342b30">
+    <Deploy />
+  </Project>
+  <Project Path="FinanceTracker.WPF/FinanceTracker.WPF.csproj" />
+</Solution>

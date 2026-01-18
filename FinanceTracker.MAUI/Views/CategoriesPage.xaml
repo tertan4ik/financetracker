@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinanceTracker.MAUI.Views.CategoriesPage"
+    BackgroundColor="Red">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+
+        <Label Text="CATEGORIES PAGE LOADED"
+               FontSize="24"
+               TextColor="White" />
+
+        <!-- остальной UI -->
+
+
+<CollectionView ItemsSource="{Binding Categories}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedCategory}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" BorderColor="LightGray">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Type}" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Entry Placeholder="Название категории"
+               Text="{Binding CategoryName}" />
+
+        <Picker Title="Тип категории"
+                ItemsSource="{Binding CategoryTypes}"
+                SelectedItem="{Binding SelectedCategoryType}" />
+
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Добавить"
+                    Command="{Binding AddCategoryCommand}" />
+
+            <Button Text="Удалить"
+                    Command="{Binding DeleteCategoryCommand}" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>
