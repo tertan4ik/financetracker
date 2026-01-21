@@ -49,9 +49,9 @@ public class OperationService
             Comment = request.Comment,
 
             // ❗ ТИП ОПЕРАЦИИ ОПРЕДЕЛЯЕТ CORE
-            Type = category.Type == CategoryType.Income
-                ? OperationType.Income
-                : OperationType.Expense
+            Type = category.Type == CategoryType.Доход
+                ? OperationType.Доход
+                : OperationType.Расход
         };
 
         _db.Operations.Add(operation);
@@ -79,9 +79,9 @@ public class OperationService
         existing.CategoryId = operation.CategoryId;
 
         // ❗ Тип снова вычисляется, UI не влияет
-        existing.Type = category.Type == CategoryType.Income
-            ? OperationType.Income
-            : OperationType.Expense;
+        existing.Type = category.Type == CategoryType.Доход
+            ? OperationType.Доход
+            : OperationType.Расход;
 
         _db.SaveChanges();
     }

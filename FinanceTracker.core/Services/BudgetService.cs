@@ -74,7 +74,7 @@ public class BudgetService
         return _db.Operations
             .Where(o =>
                 o.UserId == budget.UserId &&
-                o.Type == OperationType.Expense &&
+                o.Type == OperationType.Расход &&
                 o.Date >= budget.PeriodStart &&
                 o.Date <= budget.PeriodEnd)
             .Sum(o => o.Amount);
@@ -126,7 +126,7 @@ public class BudgetService
         var expenses = _db.Operations
             .Where(o =>
                 o.UserId == budget.UserId &&
-                o.Type == OperationType.Expense &&
+                o.Type == OperationType.Расход &&
                 o.Date >= budget.PeriodStart &&
                 o.Date <= budget.PeriodEnd)
             .GroupBy(o => o.CategoryId)

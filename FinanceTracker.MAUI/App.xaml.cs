@@ -1,7 +1,8 @@
 ﻿using FinanceTracker.Core.Data;
+using FinanceTracker.Core.Models;
+using FinanceTracker.MAUI.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Maui.Controls.PlatformConfiguration;
-using FinanceTracker.MAUI.Views;
 
 namespace FinanceTracker.MAUI;
 
@@ -20,8 +21,22 @@ public partial class App : Application
         var dbFactory = scope.ServiceProvider.GetRequiredService<IDbContextFactory<FinanceTrackerDbContext>>();
         using var db = dbFactory.CreateDbContext();
         db.Database.EnsureCreated();
+        db.Database.EnsureCreated();
 
+        // 🔥 SEED: создаём пользователя, если таблица пустая
+        if (!db.Users.Any())
+        {
+            db.Users.Add(new User
+            {
+                Id = 1,
+                Name = "Default User"
+            });
+
+            db.SaveChanges();
+        }
+
+        MainPage = new AppShell();
         //MainPage = new AppShell();
-        MainPage = new CategoriesPage();
+        //MainPage = new CategoriesPage();
     }
 }

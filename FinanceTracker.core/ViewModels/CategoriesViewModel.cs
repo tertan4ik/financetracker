@@ -4,7 +4,6 @@ using FinanceTracker.Core.Models;
 using FinanceTracker.Core.Services;
 using FinanceTracker.core.Enums;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 
 namespace FinanceTracker.Core.ViewModels;
 
@@ -14,6 +13,11 @@ public class CategoriesViewModel : BaseViewModel
     private readonly int _userId;
 
     public ObservableCollection<Category> Categories { get; } = new();
+
+    public IEnumerable<Category> VisibleCategories =>
+        CurrentMode == CategoryViewMode.Income
+            ? Categories.Where(c => c.Type == CategoryType.Доход)
+            : Categories.Where(c => c.Type == CategoryType.Расход);
 
     private string _name = string.Empty;
     public string Name
@@ -46,50 +50,50 @@ public class CategoriesViewModel : BaseViewModel
                 SelectedCategoryType = value.Type;
             }
 
-            // 🔥 ВОТ ЭТИ СТРОКИ ВКЛЮЧАЮТ КНОПКИ
             UpdateCategoryCommand.RaiseCanExecuteChanged();
             DeleteCategoryCommand.RaiseCanExecuteChanged();
         }
     }
 
-
     public RelayCommand AddCategoryCommand { get; }
     public RelayCommand UpdateCategoryCommand { get; }
     public RelayCommand DeleteCategoryCommand { get; }
+    public RelayCommand SetIncomeModeCommand { get; }
+    public RelayCommand SetExpenseModeCommand { get; }
 
     public CategoriesViewModel(CategoryService categoryService)
     {
         _categoryService = categoryService;
         _userId = CurrentUser.Id;
 
-        SelectedCategoryType = CategoryType.Expense;
+        SelectedCategoryType = CategoryType.Расход;
 
         AddCategoryCommand = new RelayCommand(AddCategory);
         UpdateCategoryCommand = new RelayCommand(UpdateCategory, () => SelectedCategory != null);
         DeleteCategoryCommand = new RelayCommand(DeleteCategory, () => SelectedCategory != null);
+        SetIncomeModeCommand = new RelayCommand(() => CurrentMode = CategoryViewMode.Income);
+        SetExpenseModeCommand = new RelayCommand(() => CurrentMode = CategoryViewMode.Expense);
 
         LoadCategories();
     }
 
-    private void LoadCategories()
+    public void LoadCategories()
     {
         Categories.Clear();
         foreach (var category in _categoryService.GetCategories(_userId))
             Categories.Add(category);
+
+        OnPropertyChanged(nameof(VisibleCategories));
     }
 
     private void AddCategory()
     {
         var category = _categoryService.CreateCategory(
-            new CreateCategoryRequest(
-                Name,
-                SelectedCategoryType,
-                _userId
-            )
-        );
+            new CreateCategoryRequest(Name, SelectedCategoryType, _userId));
 
         Categories.Add(category);
         Name = string.Empty;
+        LoadCategories();
     }
 
     private void UpdateCategory()
@@ -106,11 +110,28 @@ public class CategoriesViewModel : BaseViewModel
 
     private void DeleteCategory()
     {
+        Console.WriteLine("BUTTON PRESSED");
         if (SelectedCategory == null)
             return;
 
         _categoryService.DeleteCategory(SelectedCategory.Id);
         Categories.Remove(SelectedCategory);
         SelectedCategory = null;
+        LoadCategories();
+    }
+
+    private CategoryViewMode _currentMode = CategoryViewMode.Expense;
+    public CategoryViewMode CurrentMode
+    {
+        get => _currentMode;
+        set
+        {
+            if (_currentMode == value)
+                return;
+
+            _currentMode = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(VisibleCategories));
+        }
     }
 }

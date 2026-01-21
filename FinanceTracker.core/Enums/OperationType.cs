@@ -6,7 +6,7 @@ namespace FinanceTracker.core.Enums
 {
     public enum OperationType
     {
-        Income = 1, //доход
-        Expense = 2 //расход
+        Доход = 1, //доход
+        Расход = 2 //расход
     }
 }

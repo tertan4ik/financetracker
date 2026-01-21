@@ -6,7 +6,7 @@ namespace FinanceTracker.core.Enums
 {
     public enum CategoryType
     {
-        Income = 1, //доход
-        Expense = 2 //расход
+        Доход = 1, //доход
+        Расход = 2 //расход
     }
 }

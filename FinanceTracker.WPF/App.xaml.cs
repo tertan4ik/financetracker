@@ -14,9 +14,9 @@ namespace FinanceTracker.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            //new CategoryWindow().Show();
-            //new OperationWindow().Show();
-            //new StatisticsWindow().Show();
+            new CategoryWindow().Show();
+            new OperationWindow().Show();
+            new StatisticsWindow().Show();
             new BudgetWindow().Show();
             new SavingGoalsWindow().Show();
             var options = new DbContextOptionsBuilder<FinanceTrackerDbContext>()

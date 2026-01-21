@@ -34,6 +34,7 @@ public class CategoryService
     {
         if (string.IsNullOrWhiteSpace(request.Name))
             throw new ArgumentException("Category name is required");
+       
 
         var category = new Category
         {

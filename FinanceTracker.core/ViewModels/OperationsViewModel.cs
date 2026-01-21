@@ -1,8 +1,10 @@
-﻿using FinanceTracker.Core.Common;
+﻿using FinanceTracker.core.Enums;
+using FinanceTracker.Core.Common;
 using FinanceTracker.Core.Contracts;
 using FinanceTracker.Core.Models;
 using FinanceTracker.Core.Services;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace FinanceTracker.Core.ViewModels;
@@ -16,6 +18,8 @@ public class OperationsViewModel : BaseViewModel
 
     public ObservableCollection<Operation> Operations { get; } = new();
     public ObservableCollection<Category> Categories { get; } = new();
+    public ObservableCollection<Category> FilteredCategories { get; } = new();
+
 
     private decimal _amount;
     public decimal Amount
@@ -69,6 +73,30 @@ public class OperationsViewModel : BaseViewModel
     }
 
 
+    private CategoryType _selectedOperationType = CategoryType.Расход;
+    public CategoryType SelectedOperationType
+    {
+        get => _selectedOperationType;
+        set
+        {
+            if (_selectedOperationType == value)
+                return;
+
+            _selectedOperationType = value;
+            OnPropertyChanged();
+
+            SelectedCategory = null;
+
+            // 🔥 КЛЮЧЕВО
+            UpdateFilteredCategories();
+        }
+    }
+
+
+
+    public Array OperationTypes => Enum.GetValues(typeof(CategoryType));
+
+
     public RelayCommand AddOperationCommand { get; }
     public RelayCommand UpdateOperationCommand { get; }
     public RelayCommand DeleteOperationCommand { get; }
@@ -87,16 +115,21 @@ public class OperationsViewModel : BaseViewModel
         LoadData();
     }
 
-    private void LoadData()
+    public void LoadData()
     {
         Categories.Clear();
         foreach (var category in _categoryService.GetCategories(UserId))
             Categories.Add(category);
 
+        // 🔥 ОБЯЗАТЕЛЬНО
+        UpdateFilteredCategories();
+
         Operations.Clear();
         foreach (var operation in _operationService.GetOperations(UserId))
             Operations.Add(operation);
     }
+
+
 
     private void AddOperation()
     {
@@ -114,10 +147,14 @@ public class OperationsViewModel : BaseViewModel
         );
 
         Operations.Insert(0, operation);
+
+        // Очистка формы
         Amount = 0;
         Comment = null;
         Date = DateTime.Today;
+        SelectedCategory = null;
     }
+
 
     private void UpdateOperation()
     {
@@ -142,4 +179,14 @@ public class OperationsViewModel : BaseViewModel
         Operations.Remove(SelectedOperation);
         SelectedOperation = null;
     }
+
+    private void UpdateFilteredCategories()
+    {
+        FilteredCategories.Clear();
+
+        foreach (var category in Categories.Where(c => c.Type == SelectedOperationType))
+            FilteredCategories.Add(category);
+        Debug.WriteLine($"Filtered: {FilteredCategories.Count}");
+    }
+
 }

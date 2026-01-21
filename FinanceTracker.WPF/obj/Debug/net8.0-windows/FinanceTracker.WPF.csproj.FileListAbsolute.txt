@@ -478,3 +478,4 @@ C:\Financetracker\FinanceTracker.WPF\obj\Debug\net8.0-windows\refint\FinanceTrac
 C:\Financetracker\FinanceTracker.WPF\obj\Debug\net8.0-windows\FinanceTracker.WPF.pdb
 C:\Financetracker\FinanceTracker.WPF\obj\Debug\net8.0-windows\FinanceTracker.WPF.genruntimeconfig.cache
 C:\Financetracker\FinanceTracker.WPF\obj\Debug\net8.0-windows\ref\FinanceTracker.WPF.dll
+C:\Financetracker\FinanceTracker.WPF\obj\Debug\net8.0-windows\FinanceTracker.WPF.sourcelink.json

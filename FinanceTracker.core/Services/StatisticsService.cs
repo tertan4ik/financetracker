@@ -21,7 +21,7 @@ public class StatisticsService
         return _db.Operations
             .Where(o =>
                 o.UserId == userId &&
-                o.Type == OperationType.Income &&
+                o.Type == OperationType.Доход &&
                 o.Date >= from &&
                 o.Date <= to)
             .Sum(o => o.Amount);
@@ -35,7 +35,7 @@ public class StatisticsService
         return _db.Operations
             .Where(o =>
                 o.UserId == userId &&
-                o.Type == OperationType.Expense &&
+                o.Type == OperationType.Расход &&
                 o.Date >= from &&
                 o.Date <= to)
             .Sum(o => o.Amount);
@@ -62,7 +62,7 @@ public class StatisticsService
             .Include(o => o.Category)
             .Where(o =>
                 o.UserId == userId &&
-                o.Type == OperationType.Expense &&
+                o.Type == OperationType.Расход &&
                 o.Date >= from &&
                 o.Date <= to)
             .GroupBy(o => o.Category.Name)
@@ -85,7 +85,7 @@ public class StatisticsService
             .Include(o => o.Category)
             .Where(o =>
                 o.UserId == userId &&
-                o.Type == OperationType.Income &&
+                o.Type == OperationType.Доход &&
                 o.Date >= from &&
                 o.Date <= to)
             .GroupBy(o => o.Category.Name)

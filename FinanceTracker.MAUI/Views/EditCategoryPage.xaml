@@ -1,0 +1,22 @@
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinanceTracker.MAUI.Views.EditCategoryPage"
+    Title="Редактирование категории">
+
+    <VerticalStackLayout Padding="20" Spacing="16">
+
+        <Entry
+            Placeholder="Название категории"
+            Text="{Binding Name}" />
+
+        <Picker
+            Title="Тип категории"
+            ItemsSource="{Binding CategoryTypes}"
+            SelectedItem="{Binding SelectedCategoryType}" />
+        <Button
+    Text="Сохранить"
+    Clicked="OnSaveClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>

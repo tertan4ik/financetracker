@@ -94,10 +94,6 @@ C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10
 C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Windows.SDK.NET.dll
 C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\WinRT.Runtime.dll
 C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\FinanceTracker.core.dll
-C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
-C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
-C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\FinanceTracker.core.pdb
 C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FinanceTracker.MAUI.csproj.AssemblyReference.cache
 C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\mauiimage.inputs
@@ -195,3 +191,14 @@ C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10
 C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\FinanceTracker.MAUI.sourcelink.json
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\edit.scale-100.png
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\trash.scale-100.png
+C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
+C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
+C:\Financetracker\FinanceTracker.MAUI\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tab_operations.scale-100.png
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tab_categories.scale-100.png
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tab_budget.scale-100.png
+C:\Financetracker\FinanceTracker.MAUI\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\resizetizer\r\tab_goals.scale-100.png

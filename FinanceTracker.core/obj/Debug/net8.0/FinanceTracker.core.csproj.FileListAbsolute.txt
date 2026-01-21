@@ -40,3 +40,4 @@ C:\Financetracker\FinanceTracker.core\obj\Debug\net8.0\refint\FinanceTracker.cor
 C:\Financetracker\FinanceTracker.core\obj\Debug\net8.0\FinanceTracker.core.pdb
 C:\Financetracker\FinanceTracker.core\obj\Debug\net8.0\FinanceTracker.core.genruntimeconfig.cache
 C:\Financetracker\FinanceTracker.core\obj\Debug\net8.0\ref\FinanceTracker.core.dll
+C:\Financetracker\FinanceTracker.core\obj\Debug\net8.0\FinanceTracker.core.sourcelink.json

@@ -21,6 +21,6 @@ public partial class CategoryWindow : Window
 
         const int DefaultUserId = 1;
 
-        DataContext = new CategoriesViewModel(categoryService, DefaultUserId);
+        DataContext = new CategoriesViewModel(categoryService);
     }
 }

@@ -21,40 +21,43 @@ public class SavingGoalService
             .ToList();
     }
 
-    public SavingGoal CreateGoal(string name, decimal targetAmount, int userId)
+    public void CreateGoal(
+        string name,
+        decimal targetAmount,
+        decimal currentAmount,
+        DateTime? deadline,
+        int userId)
     {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new ArgumentException("Name is required");
-
-        if (targetAmount <= 0)
-            throw new ArgumentException("Target amount must be greater than zero");
-
         var goal = new SavingGoal
         {
-            Name = name.Trim(),
+            Name = name,
             TargetAmount = targetAmount,
-            CurrentAmount = 0,
+            CurrentAmount = currentAmount,
+            Deadline = deadline,
             UserId = userId
         };
 
         _db.SavingGoals.Add(goal);
         _db.SaveChanges();
-
-        return goal;
     }
 
-    public void UpdateGoal(SavingGoal goal)
+
+
+    public void UpdateGoal(SavingGoal updatedGoal)
     {
-        var existing = _db.SavingGoals.FirstOrDefault(g => g.Id == goal.Id);
-        if (existing == null)
+        var goal = _db.SavingGoals.FirstOrDefault(g => g.Id == updatedGoal.Id);
+        if (goal == null)
             return;
 
-        existing.Name = goal.Name.Trim();
-        existing.TargetAmount = goal.TargetAmount;
-        existing.CurrentAmount = goal.CurrentAmount;
+        goal.Name = updatedGoal.Name;
+        goal.TargetAmount = updatedGoal.TargetAmount;
+        goal.CurrentAmount = updatedGoal.CurrentAmount;
+        goal.Deadline = updatedGoal.Deadline;
 
         _db.SaveChanges();
     }
+
+
 
     public void DeleteGoal(int goalId)
     {

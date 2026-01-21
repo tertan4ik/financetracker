@@ -1,12 +1,102 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinanceTracker.MAUI.Views.SavingGoalsPage"
-             Title="SavingGoalsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinanceTracker.MAUI.Views.SavingGoalsPage"
+    Title="Цели">
+
+    <VerticalStackLayout Padding="12" Spacing="12">
+
+        <!-- ===== ФОРМА СОЗДАНИЯ ЦЕЛИ ===== -->
+        <Frame
+            Padding="12"
+            CornerRadius="12"
+            BackgroundColor="{StaticResource CardBackground}">
+
+            <VerticalStackLayout Spacing="8">
+
+                <Entry
+                    Placeholder="Название цели"
+                    Text="{Binding NewName}" />
+
+                <Entry
+                    Placeholder="Целевая сумма"
+                    Keyboard="Numeric"
+                    Text="{Binding NewTargetAmount}" />
+
+                <Entry
+                    Placeholder="Начальная сумма"
+                    Keyboard="Numeric"
+                    Text="{Binding NewCurrentAmount}" />
+                <DatePicker
+                     Date="{Binding NewDeadline}" />
+
+                <Button
+                    Text="Добавить цель"
+                    BackgroundColor="{StaticResource IncomeColor}"
+                    TextColor="White"
+                    Command="{Binding CreateGoalCommand}" />
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- ===== СПИСОК ЦЕЛЕЙ ===== -->
+        <CollectionView
+            ItemsSource="{Binding Goals}"
+            SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+
+                    <SwipeView>
+
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Reveal">
+
+                                <SwipeItem
+                                    Text="Изменить"
+                                    BackgroundColor="{StaticResource EditColor}"
+                                    CommandParameter="{Binding .}"
+                                    Invoked="OnEditInvoked" />
+
+                                <SwipeItem
+                                    Text="Удалить"
+                                    BackgroundColor="{StaticResource DeleteColor}"
+                                    CommandParameter="{Binding .}"
+                                    Invoked="OnDeleteInvoked" />
+
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <Frame
+                            Padding="12"
+                            Margin="6"
+                            CornerRadius="12"
+                            BackgroundColor="{StaticResource CardBackground}">
+
+                            <VerticalStackLayout Spacing="6">
+
+                                <Label
+                                    Text="{Binding Name}"
+                                    FontAttributes="Bold"
+                                    TextColor="{StaticResource PrimaryText}" />
+
+                                <Label
+                                    Text="{Binding CurrentAmount, StringFormat='{}{0:N2} ₽ из {1:N2} ₽'}"
+                                    TextColor="{StaticResource PrimaryText}" />
+
+                                <ProgressBar
+    Progress="{Binding ., Converter={StaticResource GoalProgressConverter}}"
+    ProgressColor="{StaticResource IncomeColor}" />
+                            </VerticalStackLayout>
+
+                        </Frame>
+
+                    </SwipeView>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>

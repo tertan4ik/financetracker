@@ -60,6 +60,24 @@ build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.
 build_metadata.AdditionalFiles.TargetPath = Views\CategoriesPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\CategoriesPage.xaml
 
+[C:/Financetracker/FinanceTracker.MAUI/Views/EditCategoryPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.EditCategoryPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditCategoryPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditCategoryPage.xaml
+
+[C:/Financetracker/FinanceTracker.MAUI/Views/EditOperationPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.EditOperationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditOperationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditOperationPage.xaml
+
+[C:/Financetracker/FinanceTracker.MAUI/Views/EditSavingGoalPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.EditSavingGoalPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\EditSavingGoalPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\EditSavingGoalPage.xaml
+
 [C:/Financetracker/FinanceTracker.MAUI/Views/OperationsPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.OperationsPage.xaml

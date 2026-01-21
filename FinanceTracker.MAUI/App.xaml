@@ -2,13 +2,70 @@
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:FinanceTracker.MAUI"
+             xmlns:converters="clr-namespace:FinanceTracker.MAUI.Converters"
              x:Class="FinanceTracker.MAUI.App">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+                <ResourceDictionary>
+
+                    <!-- ФИКСИРОВАННЫЕ ЦВЕТА -->
+                    <Color x:Key="IncomeColor">#2ECC71</Color>
+                    <!-- зелёный -->
+                    <Color x:Key="ExpenseColor">#E74C3C</Color>
+                    <!-- красный -->
+                    <Color x:Key="EditColor">#F39C12</Color>
+                    <!-- оранжевый -->
+                    <Color x:Key="DeleteColor">#C0392B</Color>
+                    <!-- тёмно-красный -->
+                    <Color x:Key="CardBackground">#FFFFFF</Color>
+                    <Color x:Key="PrimaryText">#000000</Color>
+
+                </ResourceDictionary>
+
+                <ResourceDictionary>
+
+                    <!-- Цвета нижнего меню--> 
+                    <Color x:Key="TabBarBackground">#FFFFFF</Color>
+                    <Color x:Key="TabBarText">#000000</Color>
+                    <Color x:Key="TabBarSelected">#2ECC71</Color>
+
+                    <Style TargetType="Shell">
+                        <Setter Property="Shell.TabBarBackgroundColor"
+                    Value="{StaticResource TabBarBackground}" />
+                        <Setter Property="Shell.TabBarForegroundColor"
+                    Value="{StaticResource TabBarText}" />
+                        <Setter Property="Shell.TabBarTitleColor"
+                    Value="{StaticResource TabBarText}" />
+                        <Setter Property="Shell.TabBarUnselectedColor"
+                    Value="Gray" />
+                    </Style>
+
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+
+            <converters:CategoryTypeColorConverter x:Key="CategoryTypeColorConverter" />
+
+            <converters:CategoryModeToColorConverter
+            x:Key="IncomeBackgroundConverter"
+            TargetMode="Income" />
+
+            <converters:CategoryModeToColorConverter
+            x:Key="ExpenseBackgroundConverter"
+            TargetMode="Expense" />
+
+            <converters:CategoryModeToTextColorConverter
+            x:Key="IncomeTextColorConverter"
+            TargetMode="Income" />
+
+            <converters:CategoryModeToTextColorConverter
+            x:Key="ExpenseTextColorConverter"
+            TargetMode="Expense" />
+            <converters:GoalProgressConverter
+            x:Key="GoalProgressConverter" />
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

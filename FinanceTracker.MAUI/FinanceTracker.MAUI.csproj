@@ -56,6 +56,15 @@
     <MauiXaml Update="Views\CategoriesPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
+    <MauiXaml Update="Views\EditCategoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\EditOperationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\EditSavingGoalPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
     <MauiXaml Update="Views\OperationsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
