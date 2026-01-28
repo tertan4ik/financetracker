@@ -89,3 +89,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.SavingGoalsPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\SavingGoalsPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SavingGoalsPage.xaml
+
+[C:/Financetracker/FinanceTracker.MAUI/Views/StatisticsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = FinanceTracker.MAUI.Views.StatisticsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\StatisticsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\StatisticsPage.xaml

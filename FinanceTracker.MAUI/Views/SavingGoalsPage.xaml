@@ -1,102 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:FinanceTracker.MAUI.Converters"
     x:Class="FinanceTracker.MAUI.Views.SavingGoalsPage"
-    Title="Цели">
+    Title="Цели"
+    BackgroundColor="#F2F2F2">
 
-    <VerticalStackLayout Padding="12" Spacing="12">
+    <Grid
+        Padding="12"
+        RowDefinitions="*,Auto"
+        RowSpacing="12">
 
-        <!-- ===== ФОРМА СОЗДАНИЯ ЦЕЛИ ===== -->
+        <!-- =============================== -->
+        <!-- 📋 СПИСОК ЦЕЛЕЙ -->
+        <!-- =============================== -->
         <Frame
-            Padding="12"
-            CornerRadius="12"
-            BackgroundColor="{StaticResource CardBackground}">
+            Grid.Row="0"
+            Padding="0"
+            CornerRadius="16"
+            BackgroundColor="White">
 
-            <VerticalStackLayout Spacing="8">
+            <CollectionView
+                ItemsSource="{Binding Goals}"
+                SelectionMode="None">
 
-                <Entry
-                    Placeholder="Название цели"
-                    Text="{Binding NewName}" />
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
 
-                <Entry
-                    Placeholder="Целевая сумма"
-                    Keyboard="Numeric"
-                    Text="{Binding NewTargetAmount}" />
+                        <SwipeView>
 
-                <Entry
-                    Placeholder="Начальная сумма"
-                    Keyboard="Numeric"
-                    Text="{Binding NewCurrentAmount}" />
-                <DatePicker
-                     Date="{Binding NewDeadline}" />
+                            <!-- ===== SWIPE КНОПКИ ===== -->
+                            <SwipeView.RightItems>
+                                <SwipeItems Mode="Reveal">
 
-                <Button
-                    Text="Добавить цель"
-                    BackgroundColor="{StaticResource IncomeColor}"
-                    TextColor="White"
-                    Command="{Binding CreateGoalCommand}" />
+                                    <SwipeItem
+                                        Text="Изменить"
+                                        BackgroundColor="Orange"
+                                        CommandParameter="{Binding .}"
+                                        Invoked="OnEditInvoked" />
 
-            </VerticalStackLayout>
+                                    <SwipeItem
+                                        Text="Удалить"
+                                        BackgroundColor="Red"
+                                        CommandParameter="{Binding .}"
+                                        Invoked="OnDeleteInvoked" />
+
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+
+                            <!-- ===== КАРТОЧКА ЦЕЛИ ===== -->
+                            <Frame
+                                Margin="8"
+                                Padding="12"
+                                CornerRadius="12"
+                                BackgroundColor="#FAFAFA">
+
+                                <VerticalStackLayout Spacing="6">
+
+                                    <!-- НАЗВАНИЕ -->
+                                    <Label
+                                        Text="{Binding Name}"
+                                        FontSize="16"
+                                        FontAttributes="Bold"
+                                        TextColor="Black" />
+
+                                    <!-- ТЕКУЩАЯ СУММА -->
+                                    <Label
+                                        Text="{Binding CurrentAmount, StringFormat='Накоплено: {0:N0} ₽'}"
+                                        TextColor="Black" />
+
+                                    <!-- ЦЕЛЬ -->
+                                    <Label
+                                        Text="{Binding TargetAmount, StringFormat='Цель: {0:N0} ₽'}"
+                                        FontSize="14"
+                                        TextColor="Black" />
+
+                                    <!-- 📊 ПРОГРЕСС -->
+                                    <ProgressBar
+                                        HeightRequest="6"
+                                        BackgroundColor="#E0E0E0"
+                                        ProgressColor="#2ECC71"
+                                        Progress="{Binding ., Converter={StaticResource GoalProgressConverter}}" />
+
+                                </VerticalStackLayout>
+
+                            </Frame>
+
+                        </SwipeView>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
         </Frame>
 
-        <!-- ===== СПИСОК ЦЕЛЕЙ ===== -->
-        <CollectionView
-            ItemsSource="{Binding Goals}"
-            SelectionMode="None">
+        <!-- =============================== -->
+        <!-- 🟢 КНОПКА ДОБАВЛЕНИЯ -->
+        <!-- =============================== -->
+        <Frame
+            Grid.Row="1"
+            Padding="14"
+            CornerRadius="12"
+            BackgroundColor="#2ECC71"
+            HasShadow="True">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAddTapped"/>
+            </Frame.GestureRecognizers>
 
-                    <SwipeView>
+            <Label
+                Text="➕ Добавить цель"
+                FontSize="16"
+                FontAttributes="Bold"
+                TextColor="White"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </Frame>
 
-                        <SwipeView.RightItems>
-                            <SwipeItems Mode="Reveal">
-
-                                <SwipeItem
-                                    Text="Изменить"
-                                    BackgroundColor="{StaticResource EditColor}"
-                                    CommandParameter="{Binding .}"
-                                    Invoked="OnEditInvoked" />
-
-                                <SwipeItem
-                                    Text="Удалить"
-                                    BackgroundColor="{StaticResource DeleteColor}"
-                                    CommandParameter="{Binding .}"
-                                    Invoked="OnDeleteInvoked" />
-
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-
-                        <Frame
-                            Padding="12"
-                            Margin="6"
-                            CornerRadius="12"
-                            BackgroundColor="{StaticResource CardBackground}">
-
-                            <VerticalStackLayout Spacing="6">
-
-                                <Label
-                                    Text="{Binding Name}"
-                                    FontAttributes="Bold"
-                                    TextColor="{StaticResource PrimaryText}" />
-
-                                <Label
-                                    Text="{Binding CurrentAmount, StringFormat='{}{0:N2} ₽ из {1:N2} ₽'}"
-                                    TextColor="{StaticResource PrimaryText}" />
-
-                                <ProgressBar
-    Progress="{Binding ., Converter={StaticResource GoalProgressConverter}}"
-    ProgressColor="{StaticResource IncomeColor}" />
-                            </VerticalStackLayout>
-
-                        </Frame>
-
-                    </SwipeView>
-
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-
-        </CollectionView>
-
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
+

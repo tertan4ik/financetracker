@@ -20,6 +20,7 @@ public class Budget
     [ForeignKey(nameof(User))]
     public int UserId { get; set; }
     public User User { get; set; } = null!;
-
+    public string PeriodDisplay =>
+    $"{PeriodStart:dd.MM.yyyy} – {PeriodEnd:dd.MM.yyyy}";
     public ICollection<BudgetCategoryLimit> CategoryLimits { get; set; } = new List<BudgetCategoryLimit>();
 }

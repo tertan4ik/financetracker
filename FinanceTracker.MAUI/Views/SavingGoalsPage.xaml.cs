@@ -23,21 +23,38 @@ public partial class SavingGoalsPage : ContentPage
 
     private async void OnEditInvoked(object sender, EventArgs e)
     {
+
         if (sender is SwipeItem swipeItem &&
             swipeItem.CommandParameter is SavingGoal goal)
         {
+            Console.WriteLine(goal.Name);
             await Navigation.PushAsync(new EditSavingGoalPage(goal));
         }
     }
 
-    private void OnDeleteInvoked(object sender, EventArgs e)
+    private async void OnDeleteInvoked(object sender, EventArgs e)
     {
         if (sender is SwipeItem swipeItem &&
             swipeItem.CommandParameter is SavingGoal goal &&
             BindingContext is SavingGoalsViewModel vm)
         {
+            bool confirm = await DisplayAlert(
+         "Удаление",
+         "Удалить Цель?",
+         "Да",
+         "Отмена");
+
+            if (!confirm)
+                return;
             vm.SelectedGoal = goal;
             vm.DeleteGoalCommand.Execute(null);
         }
+    }
+
+    private async void OnAddTapped(object sender, EventArgs e)
+    {
+        Console.WriteLine("Add started");
+        await Navigation.PushAsync(new EditSavingGoalPage(null));
+      
     }
 }

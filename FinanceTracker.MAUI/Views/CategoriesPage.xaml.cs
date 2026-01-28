@@ -28,7 +28,7 @@ public partial class CategoriesPage : ContentPage
             vm.LoadCategories();
     }
 
-    private void OnDeleteInvoked(object sender, EventArgs e)
+    private async void OnDeleteInvoked(object sender, EventArgs e)
     {
         Console.WriteLine("Button pressed");
         if (sender is not SwipeItem swipeItem)
@@ -41,18 +41,21 @@ public partial class CategoriesPage : ContentPage
 
         if (BindingContext is not CategoriesViewModel vm)
             return;
+        bool confirm = await DisplayAlert(
+          "Удаление",
+          "Удалить категорию?",
+          "Да",
+          "Отмена");
 
+        if (!confirm)
+            return;
         // 🔥 ВОТ ЭТО КЛЮЧЕВО
         vm.SelectedCategory = category;
 
         if (vm.DeleteCategoryCommand.CanExecute(null))
             vm.DeleteCategoryCommand.Execute(null);
     }
-
-    private void test(object sender,EventArgs e)
-    {
-        Console.WriteLine("BUTTON PRESSED");
-    }
+   
 
     private async void OnEditInvoked(object sender, EventArgs e)
     {
@@ -63,6 +66,11 @@ public partial class CategoriesPage : ContentPage
             return;
 
         await Navigation.PushAsync(new EditCategoryPage(category));
+    }
+    private async void OnAddCategoryTapped(object sender, EventArgs e)
+    {
+        // null → режим добавления
+        await Navigation.PushAsync(new EditCategoryPage(null));
     }
 
 

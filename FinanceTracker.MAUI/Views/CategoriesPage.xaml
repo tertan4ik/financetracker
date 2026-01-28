@@ -8,138 +8,129 @@
     Title="Категории"
     BackgroundColor="#F2F2F2">
 
-    <!-- ОСНОВНАЯ СЕТКА -->
-    <Grid
-        Padding="12"
-        RowDefinitions="Auto,*"
-        RowSpacing="12">
+    <AbsoluteLayout>
 
-        <!-- ===================== -->
-        <!-- 🔝 ФРЕЙМ ДОБАВЛЕНИЯ -->
-        <!-- ===================== -->
-        <Frame
-            Grid.Row="0"
+        <!-- =============================== -->
+        <!-- ⬇️ ТВОЯ СУЩЕСТВУЮЩАЯ СТРАНИЦА -->
+        <!-- =============================== -->
+        <Grid
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
             Padding="12"
-            CornerRadius="16"
-            BackgroundColor="White">
+            RowDefinitions="auto,*,auto"
+            RowSpacing="12">
+            <Frame
+                        Grid.Row="0"
+                        Padding="4"
+                        CornerRadius="12"
+                        BackgroundColor="#EEEEEE"
+                        Margin="8">
 
-            <Grid
-                RowDefinitions="Auto,Auto"
-                ColumnDefinitions="*,Auto"
-                ColumnSpacing="8"
-                RowSpacing="8">
+                <Grid ColumnDefinitions="*,*">
 
-                <!-- Название -->
-                <Entry
-                    Grid.Row="0"
-                    Grid.ColumnSpan="2"
-                    Placeholder="Название категории"
-                    Text="{Binding Name}" />
+                    <Button
+                                Grid.Column="0"
+                                Text="Доходы"
+                                Command="{Binding SetIncomeModeCommand}"
+                                BackgroundColor="{Binding CurrentMode, Converter={StaticResource IncomeBackgroundConverter}}"
+                                TextColor="{Binding CurrentMode, Converter={StaticResource IncomeTextColorConverter}}" />
 
-                <!-- Тип -->
-                <Picker
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Title="Тип"
-                    ItemsSource="{Binding CategoryTypes}"
-                    SelectedItem="{Binding SelectedCategoryType}" />
+                    <Button
+                                Grid.Column="1"
+                                Text="Расходы"
+                                Command="{Binding SetExpenseModeCommand}"
+                                BackgroundColor="{Binding CurrentMode, Converter={StaticResource ExpenseBackgroundConverter}}"
+                                TextColor="{Binding CurrentMode, Converter={StaticResource ExpenseTextColorConverter}}" />
 
-                <!-- Добавить -->
-                <Button
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="Добавить"
-                    Command="{Binding AddCategoryCommand}" />
-            </Grid>
-        </Frame>
+                </Grid>
+            </Frame>
+            <!-- ФРЕЙМ СПИСКА -->
+            <Frame
+                Grid.Row="1"
+                Padding="0"
+                CornerRadius="16"
+                BackgroundColor="White">
 
-        <!-- =============================== -->
-        <!-- ⬇️ ФРЕЙМ СПИСКА + ПЕРЕКЛЮЧАТЕЛЬ -->
-        <!-- =============================== -->
-        <Frame
-            Grid.Row="1"
-            Padding="0"
-            CornerRadius="16"
-            BackgroundColor="White">
+                <Grid RowDefinitions="Auto">
 
-            <Grid RowDefinitions="Auto,*">
+                    <!-- МЕНЮ ДОХОДЫ / РАСХОДЫ -->
 
-                <!-- МЕНЮ ДОХОДЫ / РАСХОДЫ -->
-                <Frame
-                    Grid.Row="0"
-                    Padding="4"
-                    CornerRadius="12"
-                    BackgroundColor="#EEEEEE"
-                    Margin="8">
 
-                    <Grid ColumnDefinitions="*,*">
+                    <!-- СПИСОК КАТЕГОРИЙ -->
+                    <CollectionView
+                        Grid.Row="1"
+                        ItemsSource="{Binding VisibleCategories}"
+                        SelectionMode="None">
 
-                        <Button
-                            Grid.Column="0"
-                            Text="Доходы"
-                            Command="{Binding SetIncomeModeCommand}"
-                            BackgroundColor="{Binding CurrentMode, Converter={StaticResource IncomeBackgroundConverter}}"
-                            TextColor="{Binding CurrentMode, Converter={StaticResource IncomeTextColorConverter}}" />
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
 
-                        <Button
-                            Grid.Column="1"
-                            Text="Расходы"
-                            Command="{Binding SetExpenseModeCommand}"
-                            BackgroundColor="{Binding CurrentMode, Converter={StaticResource ExpenseBackgroundConverter}}"
-                            TextColor="{Binding CurrentMode, Converter={StaticResource ExpenseTextColorConverter}}" />
+                                <SwipeView>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems Mode="Reveal">
 
-                    </Grid>
-                </Frame>
-
-                <!-- СПИСОК КАТЕГОРИЙ -->
-                <CollectionView
-                    Grid.Row="1"
-                    ItemsSource="{Binding VisibleCategories}"
-                    SelectionMode="None">
-
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-
-                            <SwipeView>
-                                <SwipeView.RightItems>
-                                    <SwipeItems Mode="Reveal">
-
-                                        <SwipeItem
-                                             Text="Изменить"
-                                              BackgroundColor="Orange"
+                                            <SwipeItem
+                                                Text="Изменить"
+                                                BackgroundColor="Orange"
                                                 CommandParameter="{Binding .}"
-                                                 Invoked="OnEditInvoked" />
+                                                Invoked="OnEditInvoked" />
 
-                                        <SwipeItem
-                                            Text="Удалить"
-                                            BackgroundColor="Red"
-                                            CommandParameter="{Binding .}"
-                                            Invoked="OnDeleteInvoked" />
+                                            <SwipeItem
+                                                Text="Удалить"
+                                                BackgroundColor="Red"
+                                                CommandParameter="{Binding .}"
+                                                Invoked="OnDeleteInvoked" />
 
-                                    </SwipeItems>
-                                </SwipeView.RightItems>
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
 
-                                <Frame
-                                    Margin="8"
-                                    Padding="12"
-                                    CornerRadius="12"
-                                    BackgroundColor="#FAFAFA">
+                                    <Frame
+                                        Margin="8"
+                                        Padding="12"
+                                        CornerRadius="12"
+                                        BackgroundColor="#FAFAFA">
 
-                                    <Label
-                                        Text="{Binding Name}"
-                                        FontSize="16"
-                                        FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontSize="16"
+                                            FontAttributes="Bold" />
 
-                                </Frame>
+                                    </Frame>
 
-                            </SwipeView>
+                                </SwipeView>
 
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
 
-            </Grid>
-        </Frame>
+                </Grid>
+            </Frame>
+            <Frame
+    Grid.Row="2"
+    Padding="14"
+             
+    CornerRadius="12"
+    BackgroundColor="#2ECC71"
+    HasShadow="True">
 
-    </Grid>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnAddCategoryTapped"/>
+                </Frame.GestureRecognizers>
+
+                <Label
+        Text="➕ Добавить категорию"
+        FontSize="16"
+        FontAttributes="Bold"
+        TextColor="White"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"/>
+            </Frame>
+        </Grid>
+
+        <!-- =============================== -->
+        <!-- 🟢 КНОПКА ПЛЮСИКА -->
+        <!-- =============================== -->
+
+
+    </AbsoluteLayout>
 </ContentPage>

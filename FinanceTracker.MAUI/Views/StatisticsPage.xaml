@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FinanceTracker.MAUI.Views.StatisticsPage"
+    Title="Статистика"
+    BackgroundColor="#F2F2F2">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="12">
+
+            <!-- ПЕРИОД -->
+            <Frame BackgroundColor="White" CornerRadius="16">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Период" FontAttributes="Bold" />
+                    <DatePicker Date="{Binding FromDate}" />
+                    <DatePicker Date="{Binding ToDate}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ОБЩАЯ СВОДКА -->
+            <Frame BackgroundColor="White" CornerRadius="16">
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="Общая сводка" FontAttributes="Bold" />
+                    <Label Text="{Binding TotalIncome, StringFormat='Доходы: {0:N0} ₽'}"
+                           TextColor="Green" />
+                    <Label Text="{Binding TotalExpense, StringFormat='Расходы: {0:N0} ₽'}"
+                           TextColor="Red" />
+                    <Label Text="{Binding Balance, StringFormat='Баланс: {0:N0} ₽'}"
+                           FontAttributes="Bold" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- РАСХОДЫ -->
+            <Frame BackgroundColor="White" CornerRadius="16">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Расходы по категориям" FontAttributes="Bold" />
+
+                    <CollectionView ItemsSource="{Binding ExpensesByCategory}"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="10" Margin="4"
+                                       CornerRadius="12"
+                                       BackgroundColor="#FAFAFA">
+                                    <VerticalStackLayout Spacing="4">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label Text="{Binding CategoryName}"
+                                                   FontAttributes="Bold" />
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}"
+                                                   TextColor="Red" />
+                                        </Grid>
+                                        <ProgressBar
+                                            Progress="{Binding Percentage}"
+                                            ProgressColor="Red" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ДОХОДЫ -->
+            <Frame BackgroundColor="White" CornerRadius="16">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Доходы по категориям" FontAttributes="Bold" />
+
+                    <CollectionView ItemsSource="{Binding IncomeByCategory}"
+                                    SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame Padding="10" Margin="4"
+                                       CornerRadius="12"
+                                       BackgroundColor="#FAFAFA">
+                                    <VerticalStackLayout Spacing="4">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label Text="{Binding CategoryName}"
+                                                   FontAttributes="Bold" />
+                                            <Label Grid.Column="1"
+                                                   Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}"
+                                                   TextColor="Green" />
+                                        </Grid>
+                                        <ProgressBar
+                                            Progress="{Binding Percentage}"
+                                            ProgressColor="Green" />
+                                    </VerticalStackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

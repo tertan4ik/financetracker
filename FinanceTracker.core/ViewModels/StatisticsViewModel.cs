@@ -8,22 +8,33 @@ namespace FinanceTracker.Core.ViewModels;
 public class StatisticsViewModel : BaseViewModel
 {
     private readonly StatisticsService _statisticsService;
-    public ObservableCollection<CategoryIncomeStat> IncomeByCategory { get; }
-    = new();
     private const int UserId = 1;
+
+    public ObservableCollection<CategoryIncomeStat> IncomeByCategory { get; } = new();
+    public ObservableCollection<CategoryExpenseStat> ExpensesByCategory { get; } = new();
 
     private DateTime _fromDate = DateTime.Today.AddDays(-30);
     public DateTime FromDate
     {
         get => _fromDate;
-        set { _fromDate = value; OnPropertyChanged(); }
+        set
+        {
+            _fromDate = value;
+            OnPropertyChanged();
+            LoadStatistics();
+        }
     }
 
     private DateTime _toDate = DateTime.Today;
     public DateTime ToDate
     {
         get => _toDate;
-        set { _toDate = value; OnPropertyChanged(); }
+        set
+        {
+            _toDate = value;
+            OnPropertyChanged();
+            LoadStatistics();
+        }
     }
 
     private decimal _totalIncome;
@@ -47,17 +58,12 @@ public class StatisticsViewModel : BaseViewModel
         set { _balance = value; OnPropertyChanged(); }
     }
 
-    public ObservableCollection<CategoryExpenseStat> ExpensesByCategory { get; }
-        = new();
-
     public ICommand LoadStatisticsCommand { get; }
 
     public StatisticsViewModel(StatisticsService statisticsService)
     {
         _statisticsService = statisticsService;
-
         LoadStatisticsCommand = new RelayCommand(LoadStatistics);
-
         LoadStatistics();
     }
 
@@ -66,13 +72,39 @@ public class StatisticsViewModel : BaseViewModel
         TotalIncome = _statisticsService.GetTotalIncome(UserId, FromDate, ToDate);
         TotalExpense = _statisticsService.GetTotalExpense(UserId, FromDate, ToDate);
         Balance = _statisticsService.GetBalance(UserId, FromDate, ToDate);
+
+        // =========================
+        // РАСХОДЫ (DESC)
+        // =========================
         ExpensesByCategory.Clear();
-        foreach (var stat in _statisticsService.GetExpensesByCategory(UserId, FromDate, ToDate))
+
+        var expenses = _statisticsService
+            .GetExpensesByCategory(UserId, FromDate, ToDate)
+            .OrderByDescending(x => x.TotalAmount); // 🔥 СОРТИРОВКА
+
+        foreach (var stat in expenses)
+        {
+            stat.Percentage =
+                TotalExpense == 0 ? 0 : (double)(stat.TotalAmount / TotalExpense);
+
             ExpensesByCategory.Add(stat);
+        }
 
+        // =========================
+        // ДОХОДЫ (DESC)
+        // =========================
         IncomeByCategory.Clear();
-        foreach (var stat in _statisticsService.GetIncomeByCategory(UserId, FromDate, ToDate))
-            IncomeByCategory.Add(stat);
 
+        var incomes = _statisticsService
+            .GetIncomeByCategory(UserId, FromDate, ToDate)
+            .OrderByDescending(x => x.TotalAmount); // 🔥 СОРТИРОВКА
+
+        foreach (var stat in incomes)
+        {
+            stat.Percentage =
+                TotalIncome == 0 ? 0 : (double)(stat.TotalAmount / TotalIncome);
+
+            IncomeByCategory.Add(stat);
+        }
     }
 }

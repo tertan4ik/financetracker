@@ -13,6 +13,7 @@ public class StatisticsService
         _db = db;
     }
 
+
     /// <summary>
     /// Общая сумма доходов за период
     /// </summary>
@@ -53,10 +54,7 @@ public class StatisticsService
     /// <summary>
     /// Расходы по категориям (для диаграмм)
     /// </summary>
-    public IReadOnlyList<CategoryExpenseStat> GetExpensesByCategory(
-        int userId,
-        DateTime from,
-        DateTime to)
+    public IReadOnlyList<CategoryExpenseStat> GetExpensesByCategory(int userId,DateTime from,DateTime to)
     {
         return _db.Operations
             .Include(o => o.Category)
@@ -76,10 +74,7 @@ public class StatisticsService
     /// <summary>
     /// Доходы по категориям
     /// </summary>
-    public IReadOnlyList<CategoryIncomeStat> GetIncomeByCategory(
-        int userId,
-        DateTime from,
-        DateTime to)
+    public IReadOnlyList<CategoryIncomeStat> GetIncomeByCategory(int userId,DateTime from,DateTime to)
     {
         return _db.Operations
             .Include(o => o.Category)
@@ -102,6 +97,7 @@ public class StatisticsService
 
 public class CategoryIncomeStat
 {
+    public double Percentage { get; set; }
     public string CategoryName { get; set; } = string.Empty;
     public decimal TotalAmount { get; set; }
 }
@@ -111,6 +107,7 @@ public class CategoryIncomeStat
 /// </summary>
 public class CategoryExpenseStat
 {
+    public double Percentage { get; set; }
     public string CategoryName { get; set; } = string.Empty;
     public decimal TotalAmount { get; set; }
 }

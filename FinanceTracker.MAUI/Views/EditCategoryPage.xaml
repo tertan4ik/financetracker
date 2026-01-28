@@ -6,14 +6,12 @@
 
     <VerticalStackLayout Padding="20" Spacing="16">
 
-        <Entry
-            Placeholder="Название категории"
-            Text="{Binding Name}" />
+        <Entry Text="{Binding Name}" />
 
         <Picker
-            Title="Тип категории"
-            ItemsSource="{Binding CategoryTypes}"
-            SelectedItem="{Binding SelectedCategoryType}" />
+    ItemsSource="{Binding CategoryTypes}"
+    SelectedItem="{Binding SelectedCategoryType}" />
+
         <Button
     Text="Сохранить"
     Clicked="OnSaveClicked" />

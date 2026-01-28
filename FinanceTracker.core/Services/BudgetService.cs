@@ -120,8 +120,10 @@ public class BudgetService
     public IReadOnlyList<CategoryBudgetStat> GetCategoryBudgetStats(Budget budget)
     {
         var categories = _db.Categories
-            .Where(c => c.UserId == budget.UserId)
-            .ToList();
+       .Where(c =>
+           c.UserId == budget.UserId &&
+           c.Type == CategoryType.Расход)
+       .ToList();
 
         var expenses = _db.Operations
             .Where(o =>
@@ -173,5 +175,14 @@ public class BudgetService
     }
 
 
+    public IReadOnlyList<Category> GetExpenseCategories(int userId)
+    {
+        Console.WriteLine("Avaliblecat is done");
+        return _db.Categories
+            .Where(c =>
+                c.UserId == userId &&
+                c.Type == CategoryType.Расход)
+            .ToList();
+    }
 
 }

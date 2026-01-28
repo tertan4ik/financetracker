@@ -65,6 +65,22 @@
             TargetMode="Expense" />
             <converters:GoalProgressConverter
             x:Key="GoalProgressConverter" />
+            
+            
+            <converters:IncomeBackgroundConverter x:Key="IncomeBackgroundConverter1" />
+            <converters:IncomeTextColorConverter x:Key="IncomeTextColorConverter1" />
+
+            <!-- ===== РАСХОДЫ ===== -->
+            <converters:ExpenseBackgroundConverter x:Key="ExpenseBackgroundConverter1" />
+            <converters:ExpenseTextColorConverter x:Key="ExpenseTextColorConverter1" />
+
+            <!-- ===== ВСЕ ===== -->
+            <converters:AllModeBackgroundConverter x:Key="AllModeBackgroundConverter" />
+            <converters:AllModeTextColorConverter x:Key="AllModeTextColorConverter" />
+
+            <converters:BudgetProgressColorConverter
+    x:Key="BudgetProgressColorConverter" />
+
 
         </ResourceDictionary>
     </Application.Resources>

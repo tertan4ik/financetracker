@@ -61,13 +61,15 @@ public class SavingGoalsViewModel : BaseViewModel
     public RelayCommand CreateGoalCommand { get; }
     public RelayCommand DeleteGoalCommand { get; }
 
+    public RelayCommand SaveGoalCommand { get; }
+
     public SavingGoalsViewModel(SavingGoalService service)
     {
         _service = service;
 
         CreateGoalCommand = new RelayCommand(CreateGoal);
         DeleteGoalCommand = new RelayCommand(DeleteGoal, () => SelectedGoal != null);
-
+        SaveGoalCommand = new RelayCommand(SaveGoal);
         LoadGoals();
     }
 
@@ -119,4 +121,65 @@ public class SavingGoalsViewModel : BaseViewModel
         _service.DeleteGoal(SelectedGoal.Id);
         LoadGoals();
     }
+    public void SetSelectedGoal(SavingGoal? goal)
+    {
+        SelectedGoal = goal;
+
+        if (goal == null)
+        {
+            // ➕ добавление
+            NewName = string.Empty;
+            NewTargetAmount = 0;
+            NewCurrentAmount = 0;
+            NewDeadline = null;
+        }
+        else
+        {
+            // ✏️ редактирование
+            NewName = goal.Name;
+            NewTargetAmount = goal.TargetAmount;
+            NewCurrentAmount = goal.CurrentAmount;
+            NewDeadline = goal.Deadline;
+        }
+    }
+    private void SaveGoal()
+    {
+        Console.WriteLine("Save method executed");
+        Console.WriteLine(NewName);
+        if (string.IsNullOrWhiteSpace(NewName))
+     
+        return;
+        Console.WriteLine("Name not white space");
+        if (NewTargetAmount <= 0)
+            return;
+        Console.WriteLine("Target amount over zero");
+        if (NewCurrentAmount < 0)
+            return;
+        Console.WriteLine("Ccurrent amount over zero");
+        if (SelectedGoal == null)
+        {
+            Console.WriteLine("Creating Goal in view model");
+            // ➕ добавление
+            _service.CreateGoal(
+                NewName,
+                NewTargetAmount,
+                NewCurrentAmount,
+                NewDeadline,
+                UserId);
+        }
+        else
+        {
+            // ✏️ редактирование
+            Console.WriteLine("Edit Goal in view model");
+            SelectedGoal.Name = NewName;
+            SelectedGoal.TargetAmount = NewTargetAmount;
+            SelectedGoal.CurrentAmount = NewCurrentAmount;
+            SelectedGoal.Deadline = NewDeadline;
+
+            _service.UpdateGoal(SelectedGoal);
+        }
+
+        LoadGoals();
+    }
+
 }

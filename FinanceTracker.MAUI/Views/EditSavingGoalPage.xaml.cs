@@ -1,27 +1,37 @@
 using FinanceTracker.Core.Models;
-using FinanceTracker.Core.Services;
 using FinanceTracker.Core.ViewModels;
 
 namespace FinanceTracker.MAUI.Views;
 
 public partial class EditSavingGoalPage : ContentPage
 {
-    public EditSavingGoalPage(SavingGoal goal)
+    public EditSavingGoalPage(SavingGoal? goal)
     {
         InitializeComponent();
 
-        BindingContext = new EditSavingGoalViewModel(
-            goal,
-            App.Services.GetRequiredService<SavingGoalService>());
+        var vm = App.Services.GetRequiredService<SavingGoalsViewModel>();
+        BindingContext = vm;
+
+        // просто прокидываем цель
+        vm.SetSelectedGoal(goal);
     }
 
     private async void OnSaveClicked(object sender, EventArgs e)
     {
-        if (BindingContext is EditSavingGoalViewModel vm)
+
+        if (BindingContext is SavingGoalsViewModel vm)
         {
-            vm.SaveCommand.Execute(null);
+            vm.SaveGoalCommand.Execute(null);
+            Console.WriteLine("save command executed");
             await Navigation.PopAsync();
         }
+        else
+        {
+            Console.WriteLine("save command not executed");
+            await Navigation.PopAsync();
+        }
+
+
     }
 
     private async void OnCancelClicked(object sender, EventArgs e)

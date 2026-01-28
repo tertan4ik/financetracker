@@ -9,23 +9,30 @@
 
         <ShellContent
             Title="Операции"
-            Icon="tab_operations.png"
+   
             ContentTemplate="{DataTemplate views:OperationsPage}" />
 
         <ShellContent
             Title="Категории"
-            Icon="tab_categories.png"
+ 
             ContentTemplate="{DataTemplate views:CategoriesPage}" />
 
         <ShellContent
+            Title="Главная"
+       
+            ContentTemplate="{DataTemplate views:StatisticsPage}" />
+
+        <ShellContent
             Title="Цели"
-            Icon="tab_goals.png"
+     
             ContentTemplate="{DataTemplate views:SavingGoalsPage}" />
 
         <ShellContent
             Title="Бюджет"
-            Icon="tab_budget.png"
+       
             ContentTemplate="{DataTemplate views:BudgetPage}" />
+
+
 
     </TabBar>
 

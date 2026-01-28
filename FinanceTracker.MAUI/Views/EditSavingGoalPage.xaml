@@ -8,20 +8,20 @@
 
         <Entry
          Placeholder="Название цели"
-         Text="{Binding Name}" />
+         Text="{Binding  NewName}" />
 
         <Entry
          Placeholder="Целевая сумма"
          Keyboard="Numeric"
-         Text="{Binding TargetAmount}" />
+         Text="{Binding  NewTargetAmount}" />
 
         <Entry
          Placeholder="Накоплено"
          Keyboard="Numeric"
-         Text="{Binding CurrentAmount}" />
+         Text="{Binding  NewCurrentAmount}" />
 
         <DatePicker
-            Date="{Binding Deadline}" />
+            Date="{Binding  NewDeadline}" />
 
         <Button
          Text="Сохранить"

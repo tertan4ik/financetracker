@@ -35,12 +35,13 @@ public static class MauiProgram
         builder.Services.AddTransient<OperationService>();
         builder.Services.AddTransient<BudgetService>();
         builder.Services.AddTransient<SavingGoalService>();
-
+        builder.Services.AddTransient<StatisticsService>();
         // ---------- VIEW MODELS ----------
         builder.Services.AddTransient<CategoriesViewModel>();
         builder.Services.AddTransient<OperationsViewModel>();
         builder.Services.AddTransient<BudgetViewModel>();
         builder.Services.AddTransient<SavingGoalsViewModel>();
+        builder.Services.AddTransient<StatisticsViewModel>();
 
         return builder.Build();
     }

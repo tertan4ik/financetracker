@@ -60,4 +60,9 @@ public partial class OperationsPage : ContentPage
         vm.SelectedOperation = operation;
         vm.DeleteOperationCommand.Execute(null);
     }
+    private async void OnAddOperationTapped(object sender, EventArgs e)
+    {
+        // null → режим добавления
+        await Navigation.PushAsync(new EditOperationPage(null));
+    }
 }

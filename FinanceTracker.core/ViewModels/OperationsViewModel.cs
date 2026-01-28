@@ -21,6 +21,7 @@ public class OperationsViewModel : BaseViewModel
     public ObservableCollection<Category> FilteredCategories { get; } = new();
 
 
+
     private decimal _amount;
     public decimal Amount
     {
@@ -72,6 +73,22 @@ public class OperationsViewModel : BaseViewModel
         }
     }
 
+    private OperationViewMode _currentMode = OperationViewMode.Expense;
+    public OperationViewMode CurrentMode
+    {
+        get => _currentMode;
+        set
+        {
+            if (_currentMode == value)
+                return;
+
+            _currentMode = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(VisibleOperations));
+        }
+    }
+
+
 
     private CategoryType _selectedOperationType = CategoryType.Расход;
     public CategoryType SelectedOperationType
@@ -93,6 +110,17 @@ public class OperationsViewModel : BaseViewModel
     }
 
 
+    public IEnumerable<Operation> VisibleOperations =>
+    CurrentMode switch
+    {
+        OperationViewMode.Income =>
+            Operations.Where(o => o.Category.Type == CategoryType.Доход),
+
+        OperationViewMode.Expense =>
+            Operations.Where(o => o.Category.Type == CategoryType.Расход),
+
+        _ => Operations
+    };
 
     public Array OperationTypes => Enum.GetValues(typeof(CategoryType));
 
@@ -100,6 +128,10 @@ public class OperationsViewModel : BaseViewModel
     public RelayCommand AddOperationCommand { get; }
     public RelayCommand UpdateOperationCommand { get; }
     public RelayCommand DeleteOperationCommand { get; }
+    public RelayCommand SetIncomeModeCommand { get; }
+    public RelayCommand SetExpenseModeCommand { get; }
+    public RelayCommand SetAllModeCommand { get; }
+
 
     public OperationsViewModel(
         OperationService operationService,
@@ -111,6 +143,9 @@ public class OperationsViewModel : BaseViewModel
         AddOperationCommand = new RelayCommand(AddOperation);
         UpdateOperationCommand = new RelayCommand(UpdateOperation, () => SelectedOperation != null);
         DeleteOperationCommand = new RelayCommand(DeleteOperation, () => SelectedOperation != null);
+        SetIncomeModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.Income);
+        SetExpenseModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.Expense);
+        SetAllModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.All);
 
         LoadData();
     }
@@ -123,10 +158,13 @@ public class OperationsViewModel : BaseViewModel
 
         // 🔥 ОБЯЗАТЕЛЬНО
         UpdateFilteredCategories();
-
+        Console.WriteLine("DATA IS LOADED");
         Operations.Clear();
         foreach (var operation in _operationService.GetOperations(UserId))
             Operations.Add(operation);
+        UpdateFilteredCategories();
+        RefreshVisibleOperations();
+        Console.WriteLine("DATA IS LOADED");
     }
 
 
@@ -153,6 +191,7 @@ public class OperationsViewModel : BaseViewModel
         Comment = null;
         Date = DateTime.Today;
         SelectedCategory = null;
+        UpdateFilteredCategories();
     }
 
 
@@ -167,7 +206,7 @@ public class OperationsViewModel : BaseViewModel
         SelectedOperation.CategoryId = SelectedCategory.Id;
 
         _operationService.UpdateOperation(SelectedOperation);
-        LoadData();
+        RefreshVisibleOperations();
     }
 
     private void DeleteOperation()
@@ -178,6 +217,7 @@ public class OperationsViewModel : BaseViewModel
         _operationService.DeleteOperation(SelectedOperation.Id);
         Operations.Remove(SelectedOperation);
         SelectedOperation = null;
+        RefreshVisibleOperations();
     }
 
     private void UpdateFilteredCategories()
@@ -187,6 +227,12 @@ public class OperationsViewModel : BaseViewModel
         foreach (var category in Categories.Where(c => c.Type == SelectedOperationType))
             FilteredCategories.Add(category);
         Debug.WriteLine($"Filtered: {FilteredCategories.Count}");
+        RefreshVisibleOperations();
+    }
+
+    private void RefreshVisibleOperations()
+    {
+        OnPropertyChanged(nameof(VisibleOperations));
     }
 
 }
