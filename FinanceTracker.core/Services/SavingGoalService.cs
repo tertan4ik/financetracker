@@ -25,7 +25,7 @@ public class SavingGoalService
         string name,
         decimal targetAmount,
         decimal currentAmount,
-        DateTime? deadline,
+        DateTime deadline,
         int userId)
     {
         var goal = new SavingGoal

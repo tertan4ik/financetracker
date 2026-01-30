@@ -32,9 +32,9 @@
 
                             <!-- ===== SWIPE КНОПКИ ===== -->
                             <SwipeView.RightItems>
-                                <SwipeItems Mode="Reveal">
+                                <SwipeItems Mode="Reveal" >
 
-                                    <SwipeItem
+                                    <SwipeItem                                  
                                         Text="Изменить"
                                         BackgroundColor="Orange"
                                         CommandParameter="{Binding .}"
@@ -44,7 +44,9 @@
                                         Text="Удалить"
                                         BackgroundColor="Red"
                                         CommandParameter="{Binding .}"
-                                        Invoked="OnDeleteInvoked" />
+                                        Invoked="OnDeleteInvoked" 
+                                        
+                                        />
 
                                 </SwipeItems>
                             </SwipeView.RightItems>
@@ -75,6 +77,21 @@
                                         Text="{Binding TargetAmount, StringFormat='Цель: {0:N0} ₽'}"
                                         FontSize="14"
                                         TextColor="Black" />
+                                    <Label
+                                        Text="{Binding Deadline, StringFormat='Дедлайн: {0:dd.MM.yyyy}'}"
+                                        FontSize="14"
+                                        TextColor="Black" />
+                                    <Label
+        Text="🎉 Цель достигнута"
+        TextColor="#27AE60"
+        FontAttributes="Bold"
+        IsVisible="{Binding IsCompleted}" />
+
+                                    <Label
+        Text="⏰ Цель просрочена"
+        TextColor="#E74C3C"
+        FontAttributes="Bold"
+        IsVisible="{Binding IsOverdue}" />
 
                                     <!-- 📊 ПРОГРЕСС -->
                                     <ProgressBar

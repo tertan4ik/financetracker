@@ -26,14 +26,18 @@ public class OperationsViewModel : BaseViewModel
     public decimal Amount
     {
         get => _amount;
-        set { _amount = value; OnPropertyChanged(); }
+        set { _amount = value; OnPropertyChanged(); Validate();
+            AddOperationCommand.RaiseCanExecuteChanged(); 
+        }
     }
 
     private DateTime _date = DateTime.Today;
     public DateTime Date
     {
         get => _date;
-        set { _date = value; OnPropertyChanged(); }
+        set { _date = value; OnPropertyChanged(); Validate();
+            AddOperationCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private string? _comment;
@@ -47,7 +51,9 @@ public class OperationsViewModel : BaseViewModel
     public Category? SelectedCategory
     {
         get => _selectedCategory;
-        set { _selectedCategory = value; OnPropertyChanged(); }
+        set { _selectedCategory = value; OnPropertyChanged(); Validate();
+            AddOperationCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private Operation? _selectedOperation;
@@ -124,7 +130,26 @@ public class OperationsViewModel : BaseViewModel
 
     public Array OperationTypes => Enum.GetValues(typeof(CategoryType));
 
+    private bool _isValid;
+    public bool HasErrors => !IsValid;
+    public bool IsValid
+    {
+        get => _isValid;
+        private set
+        {
+            _isValid = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasErrors));
+        }
+    }
 
+    private void Validate()
+    {
+        IsValid =
+            Amount > 0 &&
+            SelectedCategory != null &&
+            Date != default;
+    }
     public RelayCommand AddOperationCommand { get; }
     public RelayCommand UpdateOperationCommand { get; }
     public RelayCommand DeleteOperationCommand { get; }
@@ -140,7 +165,7 @@ public class OperationsViewModel : BaseViewModel
         _operationService = operationService;
         _categoryService = categoryService;
 
-        AddOperationCommand = new RelayCommand(AddOperation);
+        AddOperationCommand = new RelayCommand(AddOperation,()=> IsValid);
         UpdateOperationCommand = new RelayCommand(UpdateOperation, () => SelectedOperation != null);
         DeleteOperationCommand = new RelayCommand(DeleteOperation, () => SelectedOperation != null);
         SetIncomeModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.Income);

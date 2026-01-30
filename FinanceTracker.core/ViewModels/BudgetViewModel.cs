@@ -109,30 +109,71 @@ public class BudgetViewModel : BaseViewModel
     public DateTime? EditPeriodStart
     {
         get => _editPeriodStart;
-        set { _editPeriodStart = value; OnPropertyChanged(); }
+        set { _editPeriodStart = value; OnPropertyChanged(); ValidateCreate();
+            CreateBudgetCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private DateTime? _editPeriodEnd;
     public DateTime? EditPeriodEnd
     {
         get => _editPeriodEnd;
-        set { _editPeriodEnd = value; OnPropertyChanged(); }
+        set { _editPeriodEnd = value; OnPropertyChanged(); ValidateCreate();
+            CreateBudgetCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private decimal _editTotalLimit;
     public decimal EditTotalLimit
     {
         get => _editTotalLimit;
-        set { _editTotalLimit = value; OnPropertyChanged(); }
+        set { _editTotalLimit = value; OnPropertyChanged();
+        }
     }
 
     /* =========================
      * Create budget
      * ========================= */
 
-    public DateTime? PeriodStart { get; set; } = DateTime.Today;
-    public DateTime? PeriodEnd { get; set; } = DateTime.Today;
-    public decimal TotalLimitInput { get; set; }
+    private DateTime? _periodStart = DateTime.Today;
+    private DateTime? _periodEnd = DateTime.Today;
+    private decimal _totalLimitInput;
+
+    public DateTime? PeriodStart
+    {
+        get => _periodStart;
+        set
+        {
+            _periodStart = value;
+            OnPropertyChanged();
+            ValidateCreate();
+            CreateBudgetCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public DateTime? PeriodEnd
+    {
+        get => _periodEnd;
+        set
+        {
+            _periodEnd = value;
+            OnPropertyChanged();
+            ValidateCreate();
+            CreateBudgetCommand.RaiseCanExecuteChanged();
+        }
+    }
+
+    public decimal TotalLimitInput
+    {
+        get => _totalLimitInput;
+        set
+        {
+            _totalLimitInput = value;
+            OnPropertyChanged();
+            ValidateCreate();
+            CreateBudgetCommand.RaiseCanExecuteChanged();
+        }
+    }
 
     /* =========================
      * Commands
@@ -144,15 +185,32 @@ public class BudgetViewModel : BaseViewModel
     public RelayCommand CreateCategoryLimitCommand { get; }
     public RelayCommand SaveCategoryLimitsCommand { get; }
 
-    /* =========================
-     * ctor
-     * ========================= */
-
+    private bool _isValid;
+    public bool HasErrors => !IsValid;
+    public bool IsValid
+    {
+        get => _isValid;
+        private set
+        {
+            _isValid = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasErrors));
+        }
+    }
+    private void ValidateCreate()
+    {
+        IsValid =
+            PeriodStart != null &&
+            PeriodEnd != null &&
+            PeriodStart < PeriodEnd &&
+            TotalLimitInput > 0;
+    }
     public BudgetViewModel(BudgetService budgetService)
     {
         _budgetService = budgetService;
 
-        CreateBudgetCommand = new RelayCommand(CreateBudget);
+        CreateBudgetCommand = new RelayCommand(CreateBudget,
+    () => IsValid);
 
         DeleteBudgetCommand = new RelayCommand(
             DeleteBudget,
@@ -209,7 +267,7 @@ public class BudgetViewModel : BaseViewModel
         {
             CategoryLimits.Add(stat);
         }
-
+        OnPropertyChanged(nameof(IsExceeded));
         UpdateAvailableCategoriesForLimit();
     }
 

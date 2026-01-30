@@ -2,6 +2,7 @@
 using FinanceTracker.Core.Models;
 using FinanceTracker.Core.Services;
 using System.Collections.ObjectModel;
+using System.Xml.Linq;
 
 namespace FinanceTracker.Core.ViewModels;
 
@@ -33,14 +34,18 @@ public class SavingGoalsViewModel : BaseViewModel
     public string NewName
     {
         get => _newName;
-        set { _newName = value; OnPropertyChanged(); }
+        set { _newName = value; OnPropertyChanged(); Validate();
+            SaveGoalCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private decimal _newTargetAmount;
     public decimal NewTargetAmount
     {
         get => _newTargetAmount;
-        set { _newTargetAmount = value; OnPropertyChanged(); }
+        set { _newTargetAmount = value; OnPropertyChanged(); Validate();
+            SaveGoalCommand.RaiseCanExecuteChanged();
+        }
     }
 
     private decimal _newCurrentAmount;
@@ -50,19 +55,44 @@ public class SavingGoalsViewModel : BaseViewModel
         set { _newCurrentAmount = value; OnPropertyChanged(); }
     }
 
-    private DateTime? _newDeadline;
-    public DateTime? NewDeadline
+    private DateTime _newDeadline = DateTime.Today;
+    public DateTime NewDeadline
     {
         get => _newDeadline;
-        set { _newDeadline = value; OnPropertyChanged(); }
+        set
+        {
+            _newDeadline = value;
+            OnPropertyChanged();
+            Validate();
+            SaveGoalCommand.RaiseCanExecuteChanged();
+        }
     }
+
 
     // ===== КОМАНДЫ =====
     public RelayCommand CreateGoalCommand { get; }
     public RelayCommand DeleteGoalCommand { get; }
 
     public RelayCommand SaveGoalCommand { get; }
-
+    private bool _isValid;
+    public bool HasErrors => !IsValid;
+    public bool IsValid
+    {
+        get => _isValid;
+        private set
+        {
+            _isValid = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasErrors));
+        }
+    }
+    private void Validate()
+    {
+        IsValid =
+            !string.IsNullOrWhiteSpace(NewName) &&
+            NewTargetAmount > 0 &&
+            NewDeadline >= DateTime.Today;
+    }
     public SavingGoalsViewModel(SavingGoalService service)
     {
         _service = service;
@@ -107,7 +137,7 @@ public class SavingGoalsViewModel : BaseViewModel
         NewName = string.Empty;
         NewTargetAmount = 0;
         NewCurrentAmount = 0;
-        NewDeadline = null;
+        NewDeadline = DateTime.Today;
 
         LoadGoals();
     }
@@ -131,7 +161,7 @@ public class SavingGoalsViewModel : BaseViewModel
             NewName = string.Empty;
             NewTargetAmount = 0;
             NewCurrentAmount = 0;
-            NewDeadline = null;
+            NewDeadline = DateTime.Today;
         }
         else
         {

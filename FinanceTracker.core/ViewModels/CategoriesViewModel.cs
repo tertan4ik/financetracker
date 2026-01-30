@@ -23,7 +23,7 @@ public class CategoriesViewModel : BaseViewModel
     public string Name
     {
         get => _name;
-        set { _name = value; OnPropertyChanged(); }
+        set { _name = value; OnPropertyChanged(); Validate(); AddCategoryCommand.RaiseCanExecuteChanged();  }
     }
 
     private CategoryType _selectedCategoryType;
@@ -54,6 +54,23 @@ public class CategoriesViewModel : BaseViewModel
             DeleteCategoryCommand.RaiseCanExecuteChanged();
         }
     }
+    private bool _isValid;
+    public bool HasErrors => !IsValid;
+    public bool IsValid
+    {
+        get => _isValid;
+        private set
+        {
+            _isValid = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasErrors));
+        }
+    }
+    private void Validate()
+    {
+        IsValid = !string.IsNullOrWhiteSpace(Name);
+    }
+
 
     public RelayCommand AddCategoryCommand { get; }
     public RelayCommand UpdateCategoryCommand { get; }
@@ -68,7 +85,7 @@ public class CategoriesViewModel : BaseViewModel
 
         SelectedCategoryType = CategoryType.Расход;
 
-        AddCategoryCommand = new RelayCommand(AddCategory);
+        AddCategoryCommand = new RelayCommand(AddCategory, () => IsValid);
         UpdateCategoryCommand = new RelayCommand(UpdateCategory, () => SelectedCategory != null);
         DeleteCategoryCommand = new RelayCommand(DeleteCategory, () => SelectedCategory != null);
         SetIncomeModeCommand = new RelayCommand(() => CurrentMode = CategoryViewMode.Income);

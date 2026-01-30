@@ -5,31 +5,42 @@
     Title="Редактирование цели">
 
     <VerticalStackLayout Padding="20" Spacing="12">
-
+        <Label
+            Text="Название"
+            />
         <Entry
          Placeholder="Название цели"
          Text="{Binding  NewName}" />
-
+        <Label
+            Text="Целевая сумма"
+            />
         <Entry
          Placeholder="Целевая сумма"
          Keyboard="Numeric"
          Text="{Binding  NewTargetAmount}" />
-
+        <Label
+            Text="Накоплено"
+            />
         <Entry
          Placeholder="Накоплено"
          Keyboard="Numeric"
          Text="{Binding  NewCurrentAmount}" />
-
+        <Label
+            Text="Дедлайн"
+            />
         <DatePicker
             Date="{Binding  NewDeadline}" />
-
+        <Label
+    Text="Заполните все обязательные поля"
+    TextColor="Red"
+    FontSize="12"
+    IsVisible="{Binding HasErrors}" />
         <Button
          Text="Сохранить"
-         Clicked="OnSaveClicked" />
+         Clicked="OnSaveClicked" 
+             IsEnabled="{Binding IsValid}"
+            />
 
-        <Button
-            Text="Отмена"
-            Clicked="OnCancelClicked" />
 
 
     </VerticalStackLayout>

@@ -4,17 +4,26 @@
     x:Class="FinanceTracker.MAUI.Views.EditCategoryPage"
     Title="Редактирование категории">
 
-    <VerticalStackLayout Padding="20" Spacing="16">
-
+    <VerticalStackLayout Padding="20" Spacing="5">
+        <Label
+            Text="Название"
+            />
         <Entry Text="{Binding Name}" />
-
+        <Label
+            Text="Тип операции"
+            />
         <Picker
     ItemsSource="{Binding CategoryTypes}"
     SelectedItem="{Binding SelectedCategoryType}" />
-
+        <Label
+    Text="Заполните все обязательные поля"
+    TextColor="Red"
+    FontSize="12"
+    IsVisible="{Binding HasErrors}" />
         <Button
     Text="Сохранить"
-    Clicked="OnSaveClicked" />
+    Clicked="OnSaveClicked" 
+             IsEnabled="{Binding IsValid}"/>
 
     </VerticalStackLayout>
 </ContentPage>

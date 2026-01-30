@@ -5,34 +5,50 @@
     x:Class="FinanceTracker.MAUI.Views.EditOperationPage"
     Title="Операция">
 
-    <VerticalStackLayout Padding="12" Spacing="10">
-
+    <VerticalStackLayout Padding="12" Spacing="5">
+        <Label
+            Text="Тип операции"
+            />
         <Picker
             Title="Тип операции"
             ItemsSource="{Binding OperationTypes}"
             SelectedItem="{Binding SelectedOperationType}" />
 
+        <Label
+            Text="Сумма"
+            />
         <Entry
             Placeholder="Сумма"
             Keyboard="Numeric"
             Text="{Binding Amount}" />
-
+        <Label
+            Text="Категория"
+            />
         <Picker
             Title="Категория"
             ItemsSource="{Binding FilteredCategories}"
             ItemDisplayBinding="{Binding Name}"
             SelectedItem="{Binding SelectedCategory}" />
-
+        <Label
+            Text="Дата совершения"
+            />
         <DatePicker
             Date="{Binding Date}" />
-
+        <Label
+            Text="Комментарий"
+            />
         <Entry
             Placeholder="Комментарий"
             Text="{Binding Comment}" />
-
+        <Label
+    Text="Заполните все обязательные поля"
+    TextColor="Red"
+    FontSize="12"
+    IsVisible="{Binding HasErrors}" />
         <Button
             Text="Сохранить"
-            Clicked="OnSaveClicked" />
+            Clicked="OnSaveClicked"
+             IsEnabled="{Binding IsValid}"/>
 
     </VerticalStackLayout>
 </ContentPage>

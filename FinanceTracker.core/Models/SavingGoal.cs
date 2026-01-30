@@ -18,9 +18,17 @@ public class SavingGoal
     [Range(0, double.MaxValue)]
     public decimal CurrentAmount { get; set; }
 
-    public DateTime? Deadline { get; set; }
+    public DateTime Deadline { get; set; }
 
     [ForeignKey(nameof(User))]
     public int UserId { get; set; }
     public User User { get; set; } = null!;
+
+    public bool IsCompleted =>
+        CurrentAmount >= TargetAmount;
+
+    public bool IsOverdue =>
+        !IsCompleted &&
+        Deadline.Date < DateTime.Today;
+
 }
