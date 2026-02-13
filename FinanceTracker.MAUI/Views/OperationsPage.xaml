@@ -4,166 +4,102 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="FinanceTracker.MAUI.Views.OperationsPage"
     Title="Операции"
-        xmlns:converters="clr-namespace:FinanceTracker.MAUI.Converters"
+    xmlns:converters="clr-namespace:FinanceTracker.MAUI.Converters"
     BackgroundColor="#F2F2F2">
 
-    <!-- ОСНОВНАЯ СЕТКА -->
-    <Grid
-        Padding="12"
-        RowDefinitions="Auto,*,auto"
-        RowSpacing="12">
+    <ContentPage.Resources>
+        <converters:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter"/>
+    </ContentPage.Resources>
 
-        <!-- =============================== -->
+    <Grid Padding="12" RowDefinitions="Auto,Auto,*,auto" RowSpacing="12">
+
         <!-- 🔘 ПЕРЕКЛЮЧАТЕЛЬ ТИПА ОПЕРАЦИЙ -->
-        <!-- =============================== -->
-        <Frame
-    Grid.Row="0"
-    Padding="4"
-    CornerRadius="12"
-    BackgroundColor="#EEEEEE"
-    Margin="8">
-
+        <Frame Grid.Row="0" Padding="4" CornerRadius="12" BackgroundColor="#EEEEEE" Margin="8">
             <Grid ColumnDefinitions="*,*,*">
-
-                <!-- РАСХОДЫ -->
-                <Button
-            Grid.Column="0"
-            Text="Расходы"
-            Command="{Binding SetExpenseModeCommand}"
-            BackgroundColor="{Binding CurrentMode, Converter={StaticResource ExpenseBackgroundConverter1}}"
-            TextColor="{Binding CurrentMode, Converter={StaticResource ExpenseTextColorConverter1}}" />
-
-                <!-- ДОХОДЫ -->
-                <Button
-            Grid.Column="1"
-            Text="Доходы"
-            Command="{Binding SetIncomeModeCommand}"
-            BackgroundColor="{Binding CurrentMode, Converter={StaticResource IncomeBackgroundConverter1}}"
-            TextColor="{Binding CurrentMode, Converter={StaticResource IncomeTextColorConverter1}}" />
-
-                <!-- ВСЕ -->
-                <Button
-            Grid.Column="2"
-            Text="Все"
-            Command="{Binding SetAllModeCommand}"
-            BackgroundColor="{Binding CurrentMode, Converter={StaticResource AllModeBackgroundConverter}}"
-            TextColor="{Binding CurrentMode, Converter={StaticResource AllModeTextColorConverter}}" />
-
+                <Button Grid.Column="0" Text="Расходы" Command="{Binding SetExpenseModeCommand}"
+                        BackgroundColor="{Binding CurrentMode, Converter={StaticResource ExpenseBackgroundConverter1}}"
+                        TextColor="{Binding CurrentMode, Converter={StaticResource ExpenseTextColorConverter1}}" />
+                <Button Grid.Column="1" Text="Доходы" Command="{Binding SetIncomeModeCommand}"
+                        BackgroundColor="{Binding CurrentMode, Converter={StaticResource IncomeBackgroundConverter1}}"
+                        TextColor="{Binding CurrentMode, Converter={StaticResource IncomeTextColorConverter1}}" />
+                <Button Grid.Column="2" Text="Все" Command="{Binding SetAllModeCommand}"
+                        BackgroundColor="{Binding CurrentMode, Converter={StaticResource AllModeBackgroundConverter}}"
+                        TextColor="{Binding CurrentMode, Converter={StaticResource AllModeTextColorConverter}}" />
             </Grid>
         </Frame>
 
-        <!-- =============================== -->
+        <!-- 🔍 ПОИСК ПО КАТЕГОРИЯМ -->
+        <Frame Grid.Row="1" Padding="12" CornerRadius="12" BackgroundColor="White" Margin="8,0">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <Entry Grid.Column="0" 
+                       Placeholder="Поиск по категории..."
+                       Text="{Binding SearchText}"
+/>
+
+                <Button Grid.Column="1" 
+                        Text="✕"
+                        BackgroundColor="Transparent"
+                        TextColor="Gray"
+                        FontSize="18"
+                        Command="{Binding ClearSearchCommand}"
+                        IsVisible="{Binding HasSearchText}"
+                        WidthRequest="40"/>
+            </Grid>
+        </Frame>
+
         <!-- 📋 СПИСОК ОПЕРАЦИЙ -->
-        <!-- =============================== -->
-        <Frame
-            Grid.Row="1"
-            Padding="0"
-            CornerRadius="16"
-            BackgroundColor="White">
-
-            <CollectionView
-                ItemsSource="{Binding VisibleOperations}"
-                SelectionMode="None">
-
+        <Frame Grid.Row="2" Padding="0" CornerRadius="16" BackgroundColor="White">
+            <CollectionView ItemsSource="{Binding FilteredOperations}" SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-
                         <SwipeView>
-
                             <SwipeView.RightItems>
                                 <SwipeItems Mode="Reveal">
-
-                                    <SwipeItem
-                                        Text="Изменить"
-                                        BackgroundColor="{StaticResource EditColor}"
-                                        CommandParameter="{Binding .}"
-                                        Invoked="OnEditInvoked" />
-
-                                    <SwipeItem
-                                        Text="Удалить"
-                                        BackgroundColor="{StaticResource DeleteColor}"
-                                        CommandParameter="{Binding .}"
-                                        Invoked="OnDeleteInvoked" />
-
+                                    <SwipeItem Text="Изменить" BackgroundColor="{StaticResource EditColor}"
+                                               CommandParameter="{Binding .}" Invoked="OnEditInvoked" />
+                                    <SwipeItem Text="Удалить" BackgroundColor="{StaticResource DeleteColor}"
+                                               CommandParameter="{Binding .}" Invoked="OnDeleteInvoked" />
                                 </SwipeItems>
                             </SwipeView.RightItems>
 
-                            <Frame
-                                Padding="12"
-                                Margin="6"
-                                CornerRadius="12"
-                                BackgroundColor="{StaticResource CardBackground}">
-
+                            <Frame Padding="12" Margin="6" CornerRadius="12" BackgroundColor="{StaticResource CardBackground}">
                                 <VerticalStackLayout>
-
-                                    <Label
-                                        Text="{Binding Category.Name}"
-                                        TextColor="{StaticResource PrimaryText}"
-                                        FontAttributes="Bold" />
-                                    <Label
-                                      Text="{Binding Comment, StringFormat='{}{0:dd.MM.yyyy}'}"
-                                      FontSize="12"
-                                      TextColor="Gray" />
-
-                                    <Label
-                                        Text="{Binding Amount, StringFormat='{}{0:N2} ₽'}"
-                                        FontAttributes="Bold">
-
+                                    <Label Text="{Binding Category.Name}" TextColor="{StaticResource PrimaryText}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Comment}" FontSize="12" TextColor="Gray"
+                                           IsVisible="{Binding Comment, Converter={StaticResource IsNotNullOrEmptyConverter}}" />
+                                    <Label Text="{Binding Amount, StringFormat='{}{0:N2} ₽'}" FontAttributes="Bold">
                                         <Label.Triggers>
-                                            <DataTrigger
-                                                TargetType="Label"
-                                                Binding="{Binding Category.Type}"
-                                                Value="Доход">
-                                                <Setter Property="TextColor"
-                                                        Value="{StaticResource IncomeColor}" />
+                                            <DataTrigger TargetType="Label" Binding="{Binding Category.Type}" Value="Доход">
+                                                <Setter Property="TextColor" Value="{StaticResource IncomeColor}" />
                                             </DataTrigger>
-
-                                            <DataTrigger
-                                                TargetType="Label"
-                                                Binding="{Binding Category.Type}"
-                                                Value="Расход">
-                                                <Setter Property="TextColor"
-                                                        Value="{StaticResource ExpenseColor}" />
+                                            <DataTrigger TargetType="Label" Binding="{Binding Category.Type}" Value="Расход">
+                                                <Setter Property="TextColor" Value="{StaticResource ExpenseColor}" />
                                             </DataTrigger>
                                         </Label.Triggers>
-
                                     </Label>
-
-                                    <Label
-                                        Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy}'}"
-                                        FontSize="12"
-                                        TextColor="Gray" />
-
+                                    <Label Text="{Binding Date, StringFormat='{}{0:dd.MM.yyyy}'}" FontSize="12" TextColor="Gray" />
                                 </VerticalStackLayout>
-
                             </Frame>
-
                         </SwipeView>
-
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout Padding="40" Spacing="10" HorizontalOptions="Center">
+                        <Label Text="📭" FontSize="48" HorizontalOptions="Center"/>
+                        <Label Text="{Binding EmptyViewMessage}" FontSize="16" TextColor="Gray" HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
             </CollectionView>
-
         </Frame>
-<Frame
-    Grid.Row="2"
-    Padding="14"
-    CornerRadius="12"
-    BackgroundColor="#2ECC71"
-    HasShadow="True">
 
-    <Frame.GestureRecognizers>
-        <TapGestureRecognizer Tapped="OnAddOperationTapped"/>
-    </Frame.GestureRecognizers>
+        <!-- ➕ КНОПКА ДОБАВЛЕНИЯ -->
+        <Frame Grid.Row="3" Padding="14" CornerRadius="12" BackgroundColor="#2ECC71" HasShadow="True">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAddOperationTapped"/>
+            </Frame.GestureRecognizers>
+            <Label Text="➕ Добавить операцию" FontSize="16" FontAttributes="Bold"
+                   TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+        </Frame>
 
-    <Label
-        Text="➕ Добавить операцию"
-        FontSize="16"
-        FontAttributes="Bold"
-        TextColor="White"
-        HorizontalOptions="Center"
-        VerticalOptions="Center"/>
-</Frame>
     </Grid>
 </ContentPage>

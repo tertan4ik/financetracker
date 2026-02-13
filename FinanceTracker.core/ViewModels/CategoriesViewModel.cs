@@ -23,7 +23,7 @@ public class CategoriesViewModel : BaseViewModel
     public string Name
     {
         get => _name;
-        set { _name = value; OnPropertyChanged(); Validate(); AddCategoryCommand.RaiseCanExecuteChanged();  }
+        set { _name = value; OnPropertyChanged(); Validate(); AddCategoryCommand.RaiseCanExecuteChanged(); }
     }
 
     private CategoryType _selectedCategoryType;
@@ -54,8 +54,16 @@ public class CategoriesViewModel : BaseViewModel
             DeleteCategoryCommand.RaiseCanExecuteChanged();
         }
     }
+
+    private string _errorMessage = string.Empty;
+    public string ErrorMessage
+    {
+        get => _errorMessage;
+        set { _errorMessage = value; OnPropertyChanged(); }
+    }
+
     private bool _isValid;
-    public bool HasErrors => !IsValid;
+    public bool HasErrors => !IsValid || !string.IsNullOrEmpty(ErrorMessage);
     public bool IsValid
     {
         get => _isValid;
@@ -66,11 +74,11 @@ public class CategoriesViewModel : BaseViewModel
             OnPropertyChanged(nameof(HasErrors));
         }
     }
+
     private void Validate()
     {
         IsValid = !string.IsNullOrWhiteSpace(Name);
     }
-
 
     public RelayCommand AddCategoryCommand { get; }
     public RelayCommand UpdateCategoryCommand { get; }
@@ -105,12 +113,20 @@ public class CategoriesViewModel : BaseViewModel
 
     private void AddCategory()
     {
-        var category = _categoryService.CreateCategory(
-            new CreateCategoryRequest(Name, SelectedCategoryType, _userId));
+        try
+        {
+            var category = _categoryService.CreateCategory(
+                new CreateCategoryRequest(Name, SelectedCategoryType, _userId));
 
-        Categories.Add(category);
-        Name = string.Empty;
-        LoadCategories();
+            Categories.Add(category);
+            Name = string.Empty;
+            ErrorMessage = string.Empty;
+            LoadCategories();
+        }
+        catch (InvalidOperationException ex)
+        {
+            ErrorMessage = ex.Message;
+        }
     }
 
     private void UpdateCategory()
@@ -118,16 +134,23 @@ public class CategoriesViewModel : BaseViewModel
         if (SelectedCategory == null)
             return;
 
-        SelectedCategory.Name = Name;
-        SelectedCategory.Type = SelectedCategoryType;
+        try
+        {
+            SelectedCategory.Name = Name;
+            SelectedCategory.Type = SelectedCategoryType;
 
-        _categoryService.UpdateCategory(SelectedCategory);
-        LoadCategories();
+            _categoryService.UpdateCategory(SelectedCategory);
+            ErrorMessage = string.Empty;
+            LoadCategories();
+        }
+        catch (InvalidOperationException ex)
+        {
+            ErrorMessage = ex.Message;
+        }
     }
 
     private void DeleteCategory()
     {
-        Console.WriteLine("BUTTON PRESSED");
         if (SelectedCategory == null)
             return;
 

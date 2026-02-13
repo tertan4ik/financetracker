@@ -20,14 +20,65 @@ public class OperationsViewModel : BaseViewModel
     public ObservableCollection<Category> Categories { get; } = new();
     public ObservableCollection<Category> FilteredCategories { get; } = new();
 
+    // ===== ПРОСТОЙ ПОИСК ПО КАТЕГОРИЯМ =====
+    private string _searchText = string.Empty;
+    public string SearchText
+    {
+        get => _searchText;
+        set
+        {
+            _searchText = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(HasSearchText));
+            ApplyFilter();
+        }
+    }
 
+    public bool HasSearchText => !string.IsNullOrWhiteSpace(SearchText);
+
+    private ObservableCollection<Operation> _filteredOperations = new();
+    public ObservableCollection<Operation> FilteredOperations
+    {
+        get => _filteredOperations;
+        set
+        {
+            _filteredOperations = value;
+            OnPropertyChanged();
+            OnPropertyChanged(nameof(SearchResultsCount));
+            OnPropertyChanged(nameof(HasSearchResults));
+            OnPropertyChanged(nameof(EmptyViewMessage));
+        }
+    }
+
+    public int SearchResultsCount => FilteredOperations.Count;
+    public bool HasSearchResults => SearchResultsCount > 0;
+
+    public string EmptyViewMessage
+    {
+        get
+        {
+            if (HasSearchText && !HasSearchResults)
+                return "Ничего не найдено";
+
+            return CurrentMode switch
+            {
+                OperationViewMode.Income => "Нет доходов",
+                OperationViewMode.Expense => "Нет расходов",
+                _ => "Нет операций"
+            };
+        }
+    }
 
     private decimal _amount;
     public decimal Amount
     {
         get => _amount;
-        set { _amount = value; OnPropertyChanged(); Validate();
-            AddOperationCommand.RaiseCanExecuteChanged(); 
+        set
+        {
+            _amount = value;
+            OnPropertyChanged();
+            Validate();
+            AddOperationCommand.RaiseCanExecuteChanged();
         }
     }
 
@@ -35,7 +86,11 @@ public class OperationsViewModel : BaseViewModel
     public DateTime Date
     {
         get => _date;
-        set { _date = value; OnPropertyChanged(); Validate();
+        set
+        {
+            _date = value;
+            OnPropertyChanged();
+            Validate();
             AddOperationCommand.RaiseCanExecuteChanged();
         }
     }
@@ -51,7 +106,11 @@ public class OperationsViewModel : BaseViewModel
     public Category? SelectedCategory
     {
         get => _selectedCategory;
-        set { _selectedCategory = value; OnPropertyChanged(); Validate();
+        set
+        {
+            _selectedCategory = value;
+            OnPropertyChanged();
+            Validate();
             AddOperationCommand.RaiseCanExecuteChanged();
         }
     }
@@ -73,7 +132,6 @@ public class OperationsViewModel : BaseViewModel
                 SelectedCategory = Categories.FirstOrDefault(c => c.Id == value.CategoryId);
             }
 
-            // 🔥 АКТИВАЦИЯ КНОПОК
             UpdateOperationCommand.RaiseCanExecuteChanged();
             DeleteOperationCommand.RaiseCanExecuteChanged();
         }
@@ -91,10 +149,9 @@ public class OperationsViewModel : BaseViewModel
             _currentMode = value;
             OnPropertyChanged();
             OnPropertyChanged(nameof(VisibleOperations));
+            ApplyFilter();
         }
     }
-
-
 
     private CategoryType _selectedOperationType = CategoryType.Расход;
     public CategoryType SelectedOperationType
@@ -109,24 +166,19 @@ public class OperationsViewModel : BaseViewModel
             OnPropertyChanged();
 
             SelectedCategory = null;
-
-            // 🔥 КЛЮЧЕВО
             UpdateFilteredCategories();
         }
     }
 
-
     public IEnumerable<Operation> VisibleOperations =>
-    CurrentMode switch
-    {
-        OperationViewMode.Income =>
-            Operations.Where(o => o.Category.Type == CategoryType.Доход),
-
-        OperationViewMode.Expense =>
-            Operations.Where(o => o.Category.Type == CategoryType.Расход),
-
-        _ => Operations
-    };
+        CurrentMode switch
+        {
+            OperationViewMode.Income =>
+                Operations.Where(o => o.Category?.Type == CategoryType.Доход),
+            OperationViewMode.Expense =>
+                Operations.Where(o => o.Category?.Type == CategoryType.Расход),
+            _ => Operations
+        };
 
     public Array OperationTypes => Enum.GetValues(typeof(CategoryType));
 
@@ -143,20 +195,13 @@ public class OperationsViewModel : BaseViewModel
         }
     }
 
-    private void Validate()
-    {
-        IsValid =
-            Amount > 0 &&
-            SelectedCategory != null &&
-            Date != default;
-    }
     public RelayCommand AddOperationCommand { get; }
     public RelayCommand UpdateOperationCommand { get; }
     public RelayCommand DeleteOperationCommand { get; }
     public RelayCommand SetIncomeModeCommand { get; }
     public RelayCommand SetExpenseModeCommand { get; }
     public RelayCommand SetAllModeCommand { get; }
-
+    public RelayCommand ClearSearchCommand { get; }
 
     public OperationsViewModel(
         OperationService operationService,
@@ -165,99 +210,160 @@ public class OperationsViewModel : BaseViewModel
         _operationService = operationService;
         _categoryService = categoryService;
 
-        AddOperationCommand = new RelayCommand(AddOperation,()=> IsValid);
+        AddOperationCommand = new RelayCommand(AddOperation, () => IsValid);
         UpdateOperationCommand = new RelayCommand(UpdateOperation, () => SelectedOperation != null);
         DeleteOperationCommand = new RelayCommand(DeleteOperation, () => SelectedOperation != null);
         SetIncomeModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.Income);
         SetExpenseModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.Expense);
         SetAllModeCommand = new RelayCommand(() => CurrentMode = OperationViewMode.All);
+        ClearSearchCommand = new RelayCommand(ClearSearch);
 
         LoadData();
     }
 
     public void LoadData()
     {
-        Categories.Clear();
-        foreach (var category in _categoryService.GetCategories(UserId))
-            Categories.Add(category);
+        try
+        {
+            Categories.Clear();
+            foreach (var category in _categoryService.GetCategories(UserId))
+                Categories.Add(category);
 
-        // 🔥 ОБЯЗАТЕЛЬНО
-        UpdateFilteredCategories();
-        Console.WriteLine("DATA IS LOADED");
-        Operations.Clear();
-        foreach (var operation in _operationService.GetOperations(UserId))
-            Operations.Add(operation);
-        UpdateFilteredCategories();
-        RefreshVisibleOperations();
-        Console.WriteLine("DATA IS LOADED");
+            UpdateFilteredCategories();
+
+            Operations.Clear();
+            foreach (var operation in _operationService.GetOperations(UserId))
+                Operations.Add(operation);
+
+            UpdateFilteredCategories();
+            ApplyFilter();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"LoadData error: {ex}");
+        }
     }
 
-
+    private void Validate()
+    {
+        IsValid = Amount > 0 && SelectedCategory != null && Date != default;
+    }
 
     private void AddOperation()
     {
-        if (SelectedCategory == null)
-            return;
+        try
+        {
+            if (SelectedCategory == null)
+                return;
 
-        var operation = _operationService.CreateOperation(
-            new CreateOperationRequest(
-                Amount,
-                Date,
-                SelectedCategory.Id,
-                UserId,
-                Comment
-            )
-        );
+            var operation = _operationService.CreateOperation(
+                new CreateOperationRequest(
+                    Amount,
+                    Date,
+                    SelectedCategory.Id,
+                    UserId,
+                    Comment
+                )
+            );
 
-        Operations.Insert(0, operation);
+            Operations.Insert(0, operation);
+            ApplyFilter();
 
-        // Очистка формы
-        Amount = 0;
-        Comment = null;
-        Date = DateTime.Today;
-        SelectedCategory = null;
-        UpdateFilteredCategories();
+            // Очистка формы
+            Amount = 0;
+            Comment = null;
+            Date = DateTime.Today;
+            SelectedCategory = null;
+            UpdateFilteredCategories();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"AddOperation error: {ex}");
+        }
     }
-
 
     private void UpdateOperation()
     {
-        if (SelectedOperation == null || SelectedCategory == null)
-            return;
+        try
+        {
+            if (SelectedOperation == null || SelectedCategory == null)
+                return;
 
-        SelectedOperation.Amount = Amount;
-        SelectedOperation.Date = Date;
-        SelectedOperation.Comment = Comment;
-        SelectedOperation.CategoryId = SelectedCategory.Id;
+            SelectedOperation.Amount = Amount;
+            SelectedOperation.Date = Date;
+            SelectedOperation.Comment = Comment;
+            SelectedOperation.CategoryId = SelectedCategory.Id;
 
-        _operationService.UpdateOperation(SelectedOperation);
-        RefreshVisibleOperations();
+            _operationService.UpdateOperation(SelectedOperation);
+            ApplyFilter();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"UpdateOperation error: {ex}");
+        }
     }
 
     private void DeleteOperation()
     {
-        if (SelectedOperation == null)
-            return;
+        try
+        {
+            if (SelectedOperation == null)
+                return;
 
-        _operationService.DeleteOperation(SelectedOperation.Id);
-        Operations.Remove(SelectedOperation);
-        SelectedOperation = null;
-        RefreshVisibleOperations();
+            _operationService.DeleteOperation(SelectedOperation.Id);
+            Operations.Remove(SelectedOperation);
+            SelectedOperation = null;
+            ApplyFilter();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"DeleteOperation error: {ex}");
+        }
     }
 
     private void UpdateFilteredCategories()
     {
-        FilteredCategories.Clear();
-
-        foreach (var category in Categories.Where(c => c.Type == SelectedOperationType))
-            FilteredCategories.Add(category);
-        Debug.WriteLine($"Filtered: {FilteredCategories.Count}");
-        RefreshVisibleOperations();
+        try
+        {
+            FilteredCategories.Clear();
+            foreach (var category in Categories.Where(c => c.Type == SelectedOperationType))
+                FilteredCategories.Add(category);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"UpdateFilteredCategories error: {ex}");
+        }
     }
 
-    private void RefreshVisibleOperations()
+    private void ApplyFilter()
     {
-        OnPropertyChanged(nameof(VisibleOperations));
+        try
+        {
+            var visible = VisibleOperations.ToList();
+
+            if (!string.IsNullOrWhiteSpace(SearchText))
+            {
+                var searchLower = SearchText.ToLower();
+                var filtered = visible.Where(op =>
+                    op.Category?.Name?.ToLower().Contains(searchLower) ?? false
+                ).ToList();
+
+                FilteredOperations = new ObservableCollection<Operation>(filtered);
+            }
+            else
+            {
+                FilteredOperations = new ObservableCollection<Operation>(visible);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"ApplyFilter error: {ex}");
+            FilteredOperations = new ObservableCollection<Operation>(VisibleOperations);
+        }
     }
 
+    private void ClearSearch()
+    {
+        SearchText = string.Empty;
+    }
 }

@@ -19,6 +19,7 @@
             Padding="12"
             RowDefinitions="auto,*,auto"
             RowSpacing="12">
+            <!-- МЕНЮ ДОХОДЫ / РАСХОДЫ -->
             <Frame
                         Grid.Row="0"
                         Padding="4"
@@ -53,7 +54,7 @@
 
                 <Grid RowDefinitions="Auto">
 
-                    <!-- МЕНЮ ДОХОДЫ / РАСХОДЫ -->
+
 
 
                     <!-- СПИСОК КАТЕГОРИЙ -->

@@ -13,6 +13,21 @@ public class StatisticsService
         _db = db;
     }
 
+    /// <summary>
+    /// Общий баланс (все операции пользователя)
+    /// </summary>
+    public decimal GetTotalBalance(int userId)
+    {
+        var income = _db.Operations
+            .Where(o => o.UserId == userId && o.Type == OperationType.Доход)
+            .Sum(o => o.Amount);
+
+        var expense = _db.Operations
+            .Where(o => o.UserId == userId && o.Type == OperationType.Расход)
+            .Sum(o => o.Amount);
+
+        return income - expense;
+    }
 
     /// <summary>
     /// Общая сумма доходов за период
@@ -54,7 +69,7 @@ public class StatisticsService
     /// <summary>
     /// Расходы по категориям (для диаграмм)
     /// </summary>
-    public IReadOnlyList<CategoryExpenseStat> GetExpensesByCategory(int userId,DateTime from,DateTime to)
+    public IReadOnlyList<CategoryExpenseStat> GetExpensesByCategory(int userId, DateTime from, DateTime to)
     {
         return _db.Operations
             .Include(o => o.Category)
@@ -71,10 +86,11 @@ public class StatisticsService
             })
             .ToList();
     }
+
     /// <summary>
     /// Доходы по категориям
     /// </summary>
-    public IReadOnlyList<CategoryIncomeStat> GetIncomeByCategory(int userId,DateTime from,DateTime to)
+    public IReadOnlyList<CategoryIncomeStat> GetIncomeByCategory(int userId, DateTime from, DateTime to)
     {
         return _db.Operations
             .Include(o => o.Category)
@@ -91,8 +107,6 @@ public class StatisticsService
             })
             .ToList();
     }
-
-
 }
 
 public class CategoryIncomeStat

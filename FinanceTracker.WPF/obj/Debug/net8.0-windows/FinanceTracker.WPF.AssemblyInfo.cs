@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinanceTracker.WPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e64d5ba4527ff195eff65ce390e06c43fcc033b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+835b3113d535facd44278d46e5b73e2ddd565ad7")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinanceTracker.WPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinanceTracker.WPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

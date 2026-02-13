@@ -12,15 +12,33 @@ public partial class OperationsPage : ContentPage
 
     protected override void OnAppearing()
     {
-        base.OnAppearing();
+        try
+        {
+            base.OnAppearing();
 
-        // Инициализация VM через DI
-        if (BindingContext == null)
-            BindingContext = App.Services.GetRequiredService<OperationsViewModel>();
+            if (BindingContext == null)
+                BindingContext = App.Services.GetRequiredService<OperationsViewModel>();
 
-        // 🔥 ОБНОВЛЯЕМ СПИСОК ОПЕРАЦИЙ ПРИ ВОЗВРАТЕ
-        if (BindingContext is OperationsViewModel vm)
-            vm.LoadData();
+            if (BindingContext is OperationsViewModel vm)
+            {
+                // Выполняем в UI потоке
+                MainThread.BeginInvokeOnMainThread(() =>
+                {
+                    try
+                    {
+                        vm.LoadData();
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"LoadData error: {ex}");
+                    }
+                });
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"OnAppearing error: {ex}");
+        }
     }
 
     // ===== SWIPE: ИЗМЕНИТЬ =====

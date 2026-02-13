@@ -3,180 +3,20 @@
   "WorkspaceRootPath": "C:\\Financetracker\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\viewmodels\\budgetviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\viewmodels\\budgetviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\services\\budgetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\services\\budgetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\budgetpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\budgetpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editsavinggoalpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editsavinggoalpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editoperationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editoperationpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editcategorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editcategorypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\viewmodels\\savinggoalsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\viewmodels\\savinggoalsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\operationspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\operationspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\viewmodels\\operationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\viewmodels\\operationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\viewmodels\\categoriesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\viewmodels\\categoriesviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\categoriespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\categoriespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\contracts\\categorybudgetstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\contracts\\categorybudgetstat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\budgetpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\budgetpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\models\\budgetcategorylimit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\models\\budgetcategorylimit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\models\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\models\\budget.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\models\\savinggoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\models\\savinggoal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\savinggoalspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\savinggoalspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\services\\savinggoalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\services\\savinggoalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\operationspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\operationspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\viewmodels\\statisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\viewmodels\\statisticsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editsavinggoalpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editsavinggoalpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\savinggoalspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\savinggoalspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\categoriespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\categoriespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\operationspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\operationspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editcategorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editcategorypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\editoperationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\editoperationpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\statisticspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\statisticspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\services\\statisticsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\views\\statisticspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\views\\statisticspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\graphics\\piechartdrawable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\graphics\\piechartdrawable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|c:\\financetracker\\financetracker.core\\models\\operation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E2AA3485-3F2C-9168-13E6-F2C35DC31AB7}|FinanceTracker.core\\FinanceTracker.core.csproj|solutionrelative:financetracker.core\\models\\operation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\splash\\splash.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\splash\\splash.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\styles\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\styles\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\styles\\colors.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\dotnet_bot.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\dotnet_bot.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\trash.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\trash.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\tab_operations.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\tab_operations.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\tab_goals.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\tab_goals.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\tab_budget.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\tab_budget.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\tab_categories.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\tab_categories.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|c:\\financetracker\\financetracker.maui\\resources\\images\\edit.png||{58961B49-13E0-48C0-9258-13CBC4D40279}",
-      "RelativeMoniker": "D:0:0:{40837D45-CF71-4877-8FDA-483E6E342B30}|FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj|solutionrelative:financetracker.maui\\resources\\images\\edit.png||{58961B49-13E0-48C0-9258-13CBC4D40279}"
     }
   ],
   "DocumentGroupContainers": [
@@ -186,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 42,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -194,548 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CategoryBudgetStat.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Contracts\\CategoryBudgetStat.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Contracts\\CategoryBudgetStat.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Contracts\\CategoryBudgetStat.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Contracts\\CategoryBudgetStat.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T05:04:20.993Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Budget.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Models\\Budget.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Models\\Budget.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Models\\Budget.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Models\\Budget.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:50:37.25Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "BudgetCategoryLimit.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Models\\BudgetCategoryLimit.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Models\\BudgetCategoryLimit.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Models\\BudgetCategoryLimit.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Models\\BudgetCategoryLimit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:59:48.294Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "SavingGoal.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Models\\SavingGoal.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Models\\SavingGoal.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Models\\SavingGoal.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Models\\SavingGoal.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAxwBwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:47:46.981Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "SavingGoalService.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Services\\SavingGoalService.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Services\\SavingGoalService.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Services\\SavingGoalService.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Services\\SavingGoalService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAIwCkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:40:29.295Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "EditSavingGoalPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:38:20.437Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "SavingGoalsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:33:31.057Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SavingGoalsViewModel.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\SavingGoalsViewModel.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\SavingGoalsViewModel.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\SavingGoalsViewModel.cs",
-              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\SavingGoalsViewModel.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAmwFAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-30T04:31:06.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "SavingGoalsPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\SavingGoalsPage.xaml",
-              "ViewState": "AgIAADsAAAAAAAAAAAAQwFkAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-30T04:23:04.519Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EditSavingGoalPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditSavingGoalPage.xaml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-30T04:21:54.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EditCategoryPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-30T04:21:20.321Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "OperationsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:19:10.087Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "CategoriesPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\CategoriesPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\CategoriesPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\CategoriesPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\CategoriesPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:19:00.631Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Services\\CategoryService.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Services\\CategoryService.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Services\\CategoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:16:09.967Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "EditCategoryPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditCategoryPage.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wB0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:16:02.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OperationsViewModel.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
-              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAYwI0AAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:03:18.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "EditOperationPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditOperationPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditOperationPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditOperationPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditOperationPage.xaml.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA1wCEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T20:03:05.682Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "EditOperationPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditOperationPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\EditOperationPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\EditOperationPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\EditOperationPage.xaml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACwAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T20:03:01.923Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "OperationsPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T20:02:55.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "CategoriesViewModel.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\CategoriesViewModel.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\CategoriesViewModel.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\CategoriesViewModel.cs",
-              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\CategoriesViewModel.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwEEAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:45:41.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "StatisticsService.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Services\\StatisticsService.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Services\\StatisticsService.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Services\\StatisticsService.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Services\\StatisticsService.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAmwGMAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:45:31.724Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "PieChartDrawable.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Graphics\\PieChartDrawable.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Graphics\\PieChartDrawable.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Graphics\\PieChartDrawable.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Graphics\\PieChartDrawable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:43:53.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "StatisticsViewModel.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\StatisticsViewModel.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\StatisticsViewModel.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\StatisticsViewModel.cs",
-              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\StatisticsViewModel.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAADwv24AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:39:39.11Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "MauiProgram.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\MauiProgram.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\MauiProgram.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\MauiProgram.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\MauiProgram.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:33:42.863Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "StatisticsPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\StatisticsPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\StatisticsPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\StatisticsPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\StatisticsPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:30:41.124Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "StatisticsPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\StatisticsPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\StatisticsPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\StatisticsPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\StatisticsPage.xaml",
-              "ViewState": "AgIAADoAAAAAAAAAAAAkwGIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:30:19.356Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "AppShell.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\AppShell.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\AppShell.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\AppShell.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\AppShell.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:27:40.466Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AppShell.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\AppShell.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\AppShell.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\AppShell.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\AppShell.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:25:59.001Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "App.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\App.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\App.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\App.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\App.xaml",
-              "ViewState": "AgIAABcAAAAAAAAAAAAuwC0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:25:58.398Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Styles.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Styles\\Styles.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Styles\\Styles.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Styles\\Styles.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Styles\\Styles.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:25:55.235Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "Colors.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Styles\\Colors.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Styles\\Colors.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Styles\\Colors.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Styles\\Colors.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:25:54.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "splash.svg",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Splash\\splash.svg",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Splash\\splash.svg",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Splash\\splash.svg",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Splash\\splash.svg",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKTSURBVDhPjVNLSFRRGP7unTsz9w75uOaMZlMNpo1aFFJRodRGN7UwatMiKgga3JgVRBSNSA8RooUFLRycCCpc9ITIFi0EW\u002BhCW/gONYUcxplsQL13nKv3dM6ZGV\u002BE9N37c\u002B455/\u002B\u002B/7s/5whYA7/fP5L63BSCIDxvbGxsAiEktZQEE6Brm6K1tXWS5TU0NNQyjsiZKQgCBgBChQ2Q\u002BfswpytgDLmg9zihD9XBNJfhcrlstPoeqlVPRS6uCBDy1broLnN29PkxPeaFFmpC79gOdEu9sB8KQRt\u002Bz/NUVbUGAoGpJIfc5j2gZIuv3fam/sCNGrdjGLGwE23hR\u002BiMeBCKAbXlOTgfr0VW9QfqD4iEZ5BIJNAWDI5yB75X0tXqwrc1JZk90MKVUEq/4UplFc4W5UKwiHjaO4tx90NWiYfT5cQuj4dRITLrZfn9104XtOD3\u002BE4z7/BrqIoKZ4YM37E8XNifA4vdiuCIApPzWY9Wmy9h6UfOpd13t89FstEceyF2PJlAfNHkm6y6xSbxcTASpyuMyFT4NoeI6PV6mzEvvIy0oO\u002BXPVGULaMs186jVLVil0zzF\u002BI4ki\u002BnqjP\u002BGgemrp0Z\u002BHn8T0d0nyrOTky\u002B8x0tNoxE0iZrcSqXz5lAcroCcXkeBcGpyzcnowRTDk9xoDuEmbkE5vRlfB6cRcWzIXibv\u002BNTf5ST0y7SEBa6MGIaOFje2VUnZSgPTFECMZM9YCeLde6cdwvuVLlXrVMFWXGAHqRRaUlDezyEic6tlbFBbW/oS8nHbf0RDZIooDDLipPeTJwozIJJH4EIoG/y1/6Fe/5bj6lFousa0WjoWjoWiLYhGNidWHcXDNhOsVGWFSg0ZCUdDigbIo11Zv73Oq8C\u002BAsr5V2IWWNA0gAAAABJRU5ErkJggg==",
-              "WhenOpened": "2026-01-28T19:25:51.027Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "dotnet_bot.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\dotnet_bot.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\dotnet_bot.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\dotnet_bot.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\dotnet_bot.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:45.989Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "trash.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\trash.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\trash.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\trash.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\trash.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:42.792Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "tab_operations.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_operations.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\tab_operations.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_operations.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\tab_operations.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:39.708Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "tab_goals.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_goals.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\tab_goals.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_goals.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\tab_goals.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:37.802Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "tab_categories.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_categories.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\tab_categories.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_categories.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\tab_categories.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:34.942Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "tab_budget.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_budget.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\tab_budget.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\tab_budget.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\tab_budget.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:33.718Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "edit.png",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\edit.png",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Resources\\Images\\edit.png",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Resources\\Images\\edit.png",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Resources\\Images\\edit.png",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
-              "WhenOpened": "2026-01-28T19:25:31.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "BudgetPage.xaml.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\BudgetPage.xaml.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\BudgetPage.xaml.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\BudgetPage.xaml.cs",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\BudgetPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:14:54.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BudgetPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\BudgetPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\BudgetPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\BudgetPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\BudgetPage.xaml",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAAAI0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-28T19:14:52.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BudgetViewModel.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\BudgetViewModel.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\BudgetViewModel.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\BudgetViewModel.cs",
-              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\BudgetViewModel.cs",
-              "ViewState": "AgIAAKUAAAAAAAAAAAA9wJ4AAAAfAAAAAAAAAA==",
+              "Title": "Operation.cs",
+              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Models\\Operation.cs",
+              "RelativeDocumentMoniker": "FinanceTracker.core\\Models\\Operation.cs",
+              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Models\\Operation.cs",
+              "RelativeToolTip": "FinanceTracker.core\\Models\\Operation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:12:05.502Z",
+              "WhenOpened": "2026-02-13T18:57:16.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BudgetService.cs",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\Services\\BudgetService.cs",
-              "RelativeDocumentMoniker": "FinanceTracker.core\\Services\\BudgetService.cs",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\Services\\BudgetService.cs",
-              "RelativeToolTip": "FinanceTracker.core\\Services\\BudgetService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Title": "OperationsViewModel.cs",
+              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
+              "RelativeDocumentMoniker": "FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
+              "ToolTip": "C:\\Financetracker\\FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
+              "RelativeToolTip": "FinanceTracker.core\\ViewModels\\OperationsViewModel.cs",
+              "ViewState": "AgIAAEsBAAAAAAAAAAAiwHABAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-28T19:12:04.828Z",
+              "WhenOpened": "2026-02-13T18:48:38.527Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CategoriesPage.xaml",
-              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\CategoriesPage.xaml",
-              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\CategoriesPage.xaml",
-              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\CategoriesPage.xaml",
-              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\CategoriesPage.xaml",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAHAAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "OperationsPage.xaml",
+              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
+              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
+              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
+              "RelativeToolTip": "FinanceTracker.MAUI\\Views\\OperationsPage.xaml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAmwCYAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-18T21:34:43.409Z",
+              "WhenOpened": "2026-02-13T18:48:15.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Financetracker\\FinanceTracker.MAUI\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "FinanceTracker.MAUI\\MauiProgram.cs",
+              "ToolTip": "C:\\Financetracker\\FinanceTracker.MAUI\\MauiProgram.cs",
+              "RelativeToolTip": "FinanceTracker.MAUI\\MauiProgram.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-13T18:44:30.93Z",
               "EditorCaption": ""
             }
           ]

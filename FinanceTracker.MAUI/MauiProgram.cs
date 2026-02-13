@@ -1,4 +1,6 @@
-﻿using FinanceTracker.Core.Data;
+﻿
+
+using FinanceTracker.Core.Data;
 using FinanceTracker.Core.Services;
 using FinanceTracker.Core.ViewModels;
 using Microsoft.EntityFrameworkCore;

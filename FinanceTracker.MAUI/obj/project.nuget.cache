@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "z5/AY3yVY3c=",
+  "dgSpecHash": "4YZPhP2KOJI=",
   "success": true,
   "projectFilePath": "C:\\Financetracker\\FinanceTracker.MAUI\\FinanceTracker.MAUI.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,7 @@
     "C:\\Users\\pavel\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.10\\system.diagnostics.diagnosticsource.9.0.10.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\system.io.pipelines\\9.0.10\\system.io.pipelines.9.0.10.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\pavel\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\system.text.encodings.web\\9.0.10\\system.text.encodings.web.9.0.10.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\system.text.json\\9.0.10\\system.text.json.9.0.10.nupkg.sha512",
@@ -122,6 +123,7 @@
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.androidx.viewpager2\\1.0.0.21\\xamarin.androidx.viewpager2.1.0.0.21.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.androidx.window\\1.1.0.1\\xamarin.androidx.window.1.1.0.1.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.androidx.window.extensions.core.core\\1.0.0.1\\xamarin.androidx.window.extensions.core.core.1.0.0.1.nupkg.sha512",
+    "C:\\Users\\pavel\\.nuget\\packages\\xamarin.essentials\\1.8.1\\xamarin.essentials.1.8.1.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.google.android.material\\1.9.0.2\\xamarin.google.android.material.1.9.0.2.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.google.code.findbugs.jsr305\\3.0.2.9\\xamarin.google.code.findbugs.jsr305.3.0.2.9.nupkg.sha512",
     "C:\\Users\\pavel\\.nuget\\packages\\xamarin.google.crypto.tink.android\\1.10.0\\xamarin.google.crypto.tink.android.1.10.0.nupkg.sha512",

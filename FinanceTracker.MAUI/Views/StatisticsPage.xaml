@@ -2,94 +2,201 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:FinanceTracker.MAUI.Converters"
     x:Class="FinanceTracker.MAUI.Views.StatisticsPage"
-    Title="Статистика"
+    Title="Главная"
     BackgroundColor="#F2F2F2">
+
+    <ContentPage.Resources>
+        <converters:IsNotNullOrEmptyConverter x:Key="IsNotNullOrEmptyConverter"/>
+        <converters:BalanceColorConverter x:Key="BalanceColorConverter"/>
+        <converters:BalanceSignConverter x:Key="BalanceSignConverter"/>
+    </ContentPage.Resources>
 
     <ScrollView>
         <VerticalStackLayout Padding="12" Spacing="12">
 
-            <!-- ПЕРИОД -->
-            <Frame BackgroundColor="White" CornerRadius="16">
+            <!-- ФРЕЙМ ОБЩЕГО БАЛАНСА (ВСЕ ОПЕРАЦИИ) -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Период" FontAttributes="Bold" />
-                    <DatePicker Date="{Binding FromDate}" />
-                    <DatePicker Date="{Binding ToDate}" />
+                    <Label Text="Общий баланс" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
+
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                        <Label Grid.Column="0" 
+                   Text="Всего на счете:" 
+                   FontSize="14" 
+                   TextColor="Gray"
+                   VerticalOptions="Center"/>
+                        <Label Grid.Column="1" 
+                   Text="{Binding TotalBalance, Converter={StaticResource BalanceSignConverter}}"
+                   FontAttributes="Bold" 
+                   FontSize="18"
+                   TextColor="{Binding TotalBalance, Converter={StaticResource BalanceColorConverter}}"
+                   VerticalOptions="Center"/>
+                    </Grid>
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- ОБЩАЯ СВОДКА -->
-            <Frame BackgroundColor="White" CornerRadius="16">
-                <VerticalStackLayout Spacing="6">
-                    <Label Text="Общая сводка" FontAttributes="Bold" />
-                    <Label Text="{Binding TotalIncome, StringFormat='Доходы: {0:N0} ₽'}"
-                           TextColor="Green" />
-                    <Label Text="{Binding TotalExpense, StringFormat='Расходы: {0:N0} ₽'}"
-                           TextColor="Red" />
-                    <Label Text="{Binding Balance, StringFormat='Баланс: {0:N0} ₽'}"
-                           FontAttributes="Bold" />
+            <!-- СВОДКА ЗА ПЕРИОД -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Сводка за период" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <VerticalStackLayout Grid.Column="0">
+                            <Label Text="С" FontSize="12" TextColor="Gray"/>
+                            <DatePicker Date="{Binding FromDate}" />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="По" FontSize="12" TextColor="Gray"/>
+                            <DatePicker Date="{Binding ToDate}" />
+                        </VerticalStackLayout>
+                    </Grid>
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- РАСХОДЫ -->
-            <Frame BackgroundColor="White" CornerRadius="16">
-                <VerticalStackLayout Spacing="8">
-                    <Label Text="Расходы по категориям" FontAttributes="Bold" />
+            <!-- ПОСЛЕДНИЕ ОПЕРАЦИИ -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Последние операции" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
 
-                    <CollectionView ItemsSource="{Binding ExpensesByCategory}"
-                                    SelectionMode="None">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame Padding="10" Margin="4"
-                                       CornerRadius="12"
-                                       BackgroundColor="#FAFAFA">
-                                    <VerticalStackLayout Spacing="4">
-                                        <Grid ColumnDefinitions="*,Auto">
-                                            <Label Text="{Binding CategoryName}"
-                                                   FontAttributes="Bold" />
-                                            <Label Grid.Column="1"
-                                                   Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}"
-                                                   TextColor="Red" />
+                    <ScrollView HeightRequest="250">
+                        <CollectionView ItemsSource="{Binding RecentOperations}" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Padding="12" Margin="0,0,0,8" CornerRadius="10" BackgroundColor="#FAFAFA">
+                                        <Grid ColumnDefinitions="*,Auto,Auto" ColumnSpacing="8">
+                                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                                <Label Text="{Binding Category.Name}" FontAttributes="Bold" FontSize="14"/>
+                                                <Label Text="{Binding Date, StringFormat='{0:dd.MM.yyyy}'}" FontSize="11" TextColor="Gray"/>
+                                            </VerticalStackLayout>
+                                            <Label Grid.Column="1" 
+                                                   Text="{Binding Amount, StringFormat='{0:N0} ₽'}" 
+                                                   FontAttributes="Bold"
+                                                   TextColor="{Binding Category.Type, Converter={StaticResource CategoryTypeColorConverter}}"
+                                                   VerticalOptions="Center"/>
+                                            <Label Grid.Column="2" 
+                                                   Text="{Binding Comment, StringFormat=' {0}'}" 
+                                                   FontSize="11" 
+                                                   TextColor="Gray"
+                                                   VerticalOptions="Center"
+                                                   IsVisible="{Binding Comment, Converter={StaticResource IsNotNullOrEmptyConverter}}"/>
                                         </Grid>
-                                        <ProgressBar
-                                            Progress="{Binding Percentage}"
-                                            ProgressColor="Red" />
-                                    </VerticalStackLayout>
-                                </Frame>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.EmptyView>
+                                <Label Text="Нет операций за выбранный период" 
+                                       TextColor="Gray" 
+                                       HorizontalOptions="Center"
+                                       Margin="0,20"/>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                    </ScrollView>
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- ДОХОДЫ -->
-            <Frame BackgroundColor="White" CornerRadius="16">
+            <!-- ОБЩАЯ СВОДКА ЗА ПЕРИОД -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
                 <VerticalStackLayout Spacing="8">
-                    <Label Text="Доходы по категориям" FontAttributes="Bold" />
+                    <Label Text="Общая сводка за период" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
 
-                    <CollectionView ItemsSource="{Binding IncomeByCategory}"
-                                    SelectionMode="None">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame Padding="10" Margin="4"
-                                       CornerRadius="12"
-                                       BackgroundColor="#FAFAFA">
-                                    <VerticalStackLayout Spacing="4">
-                                        <Grid ColumnDefinitions="*,Auto">
-                                            <Label Text="{Binding CategoryName}"
-                                                   FontAttributes="Bold" />
-                                            <Label Grid.Column="1"
-                                                   Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}"
-                                                   TextColor="Green" />
-                                        </Grid>
-                                        <ProgressBar
-                                            Progress="{Binding Percentage}"
-                                            ProgressColor="Green" />
-                                    </VerticalStackLayout>
-                                </Frame>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        <Frame Grid.Column="0" BackgroundColor="#E8F5E9" CornerRadius="10" Padding="10">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="Доходы" FontSize="12" TextColor="#2E7D32"/>
+                                <Label Text="{Binding PeriodIncome, StringFormat='+{0:N0} ₽'}" 
+                           FontAttributes="Bold" 
+                           TextColor="#2E7D32"
+                           FontSize="14"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Column="1" BackgroundColor="#FFEBEE" CornerRadius="10" Padding="10">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="Расходы" FontSize="12" TextColor="#C62828"/>
+                                <Label Text="{Binding PeriodExpense, StringFormat='-{0:N0} ₽'}" 
+                           FontAttributes="Bold" 
+                           TextColor="#C62828"
+                           FontSize="14"/>
+                            </VerticalStackLayout>
+                        </Frame>
+
+                        <Frame Grid.Column="2" BackgroundColor="#F5F5F5" CornerRadius="10" Padding="10">
+                            <VerticalStackLayout Spacing="4" HorizontalOptions="Center">
+                                <Label Text="Итог" FontSize="12" TextColor="#333333"/>
+                                <!-- Тоже используем конвертер -->
+                                <Label Text="{Binding PeriodBalance, Converter={StaticResource BalanceSignConverter}}"
+                           FontAttributes="Bold" 
+                           TextColor="{Binding PeriodBalance, Converter={StaticResource BalanceColorConverter}}"
+                           FontSize="14"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- РАСХОДЫ ПО КАТЕГОРИЯМ -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Расходы по категориям" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
+
+                    <ScrollView HeightRequest="200">
+                        <CollectionView ItemsSource="{Binding ExpensesByCategory}" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Padding="10" Margin="0,0,0,8" CornerRadius="10" BackgroundColor="#FAFAFA">
+                                        <VerticalStackLayout Spacing="4">
+                                            <Grid ColumnDefinitions="*,Auto">
+                                                <Label Text="{Binding CategoryName}" FontSize="14"/>
+                                                <Label Grid.Column="1" 
+                                                       Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}" 
+                                                       TextColor="#E74C3C"
+                                                       FontAttributes="Bold"
+                                                       FontSize="14"/>
+                                            </Grid>
+                                            <ProgressBar Progress="{Binding Percentage}" ProgressColor="#E74C3C" HeightRequest="4"/>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.EmptyView>
+                                <Label Text="Нет расходов за период" TextColor="Gray" Margin="0,20" HorizontalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                    </ScrollView>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ДОХОДЫ ПО КАТЕГОРИЯМ -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="15">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Доходы по категориям" FontAttributes="Bold" FontSize="16" TextColor="#333333"/>
+
+                    <ScrollView HeightRequest="200">
+                        <CollectionView ItemsSource="{Binding IncomeByCategory}" SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame Padding="10" Margin="0,0,0,8" CornerRadius="10" BackgroundColor="#FAFAFA">
+                                        <VerticalStackLayout Spacing="4">
+                                            <Grid ColumnDefinitions="*,Auto">
+                                                <Label Text="{Binding CategoryName}" FontSize="14"/>
+                                                <Label Grid.Column="1" 
+                                                       Text="{Binding TotalAmount, StringFormat='{0:N0} ₽'}" 
+                                                       TextColor="#2ECC71"
+                                                       FontAttributes="Bold"
+                                                       FontSize="14"/>
+                                            </Grid>
+                                            <ProgressBar Progress="{Binding Percentage}" ProgressColor="#2ECC71" HeightRequest="4"/>
+                                        </VerticalStackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.EmptyView>
+                                <Label Text="Нет доходов за период" TextColor="Gray" Margin="0,20" HorizontalOptions="Center"/>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                    </ScrollView>
                 </VerticalStackLayout>
             </Frame>
 

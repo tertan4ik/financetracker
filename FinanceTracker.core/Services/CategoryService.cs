@@ -14,7 +14,6 @@ public class CategoryService
         _db = db;
     }
 
-
     /// <summary>
     /// Получить категории пользователя
     /// </summary>
@@ -28,13 +27,30 @@ public class CategoryService
     }
 
     /// <summary>
+    /// Проверка уникальности имени категории
+    /// </summary>
+    private bool IsCategoryNameUnique(int userId, string name, int? excludeCategoryId = null)
+    {
+        var query = _db.Categories.Where(c => c.UserId == userId && c.Name == name.Trim());
+
+        if (excludeCategoryId.HasValue)
+        {
+            query = query.Where(c => c.Id != excludeCategoryId.Value);
+        }
+
+        return !query.Any();
+    }
+
+    /// <summary>
     /// Создание категории (MAUI-ready)
     /// </summary>
     public Category CreateCategory(CreateCategoryRequest request)
     {
         if (string.IsNullOrWhiteSpace(request.Name))
             throw new ArgumentException("Category name is required");
-       
+
+        if (!IsCategoryNameUnique(request.UserId, request.Name))
+            throw new InvalidOperationException("Категория с таким именем уже существует");
 
         var category = new Category
         {
@@ -57,6 +73,10 @@ public class CategoryService
         var existing = _db.Categories.FirstOrDefault(c => c.Id == category.Id);
         if (existing == null)
             throw new InvalidOperationException("Category not found");
+
+        // Проверяем уникальность имени (исключая текущую категорию)
+        if (!IsCategoryNameUnique(category.UserId, category.Name, category.Id))
+            throw new InvalidOperationException("Категория с таким именем уже существует");
 
         existing.Name = category.Name.Trim();
         existing.Type = category.Type;
