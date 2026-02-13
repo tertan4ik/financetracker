@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinanceTracker.MAUI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+835b3113d535facd44278d46e5b73e2ddd565ad7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+66bc28cb15325f6482be5825e69973332fd2c1a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinanceTracker.MAUI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinanceTracker.MAUI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
